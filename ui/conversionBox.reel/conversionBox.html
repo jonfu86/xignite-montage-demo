@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <title>Main</title>
+
+    <link rel="stylesheet" type="text/css" href="conversionBox.css">
+
+    <script type="text/montage-serialization">
+        {
+            "owner": {
+                "properties": {
+                    "element": {"#": "main"}
+                },
+                "bindings": {
+                    "classList.has('enabled')": {"<-": "@checkbox.checked"}
+                }
+            },
+
+            "checkbox": {
+                "prototype": "digit/ui/toggle-switch.reel",
+                "properties": {
+                    "element": {"#": "toggleSwitch"}
+                }
+            },
+
+            "icon": {
+                "prototype": "montage/ui/image.reel",
+                "properties": {
+                    "element": {"#": "icon"}
+                },
+                "bindings": {
+                    "src": {"<-": "@owner.icon"}
+                }
+            },
+
+            "conversionLabel": {
+                "prototype": "montage/ui/text.reel",
+                "properties": {
+                    "element": {"#": "conversionLabel"}
+                },
+                "bindings": {
+                    "value": {"<-": "@owner.name"}
+                }
+            }
+
+        }
+    </script>
+</head>
+<body>
+    <div data-montage-id="main" data-montage-skin="light" class="Main">
+        <div data-montage-id="toggleSwitch" class="toggleSwitch"></div>
+        <img data-montage-id="icon" class="icon"></img>
+        <div data-montage-id="conversionLabel" class="conversionLabel"></div>
+    </div>
+</body>
+</html>

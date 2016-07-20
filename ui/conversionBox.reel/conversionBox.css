@@ -1,0 +1,52 @@
+.toggleSwitch{
+    /*css for montage/checkbox which is broken*/
+   /* width:15px;
+    height:15px;
+    border-radius:3px;
+    background:white;
+    border:1px solid black;
+    display:inline-block;*/
+}
+
+.enabled {
+
+}
+
+.toggleSwitch.digit-ToggleSwitch {
+    height:20px;
+    width:30px;
+    vertical-align: top;
+}
+
+.toggleSwitch > .digit-ToggleSwitch-thumb {
+    width:20px;
+}
+
+.toggleSwitch.montage-ToggleSwitch--checked {
+    background: rgb(100, 189, 99);
+    border-color: rgb(100, 189, 99);
+}
+
+.toggleSwitch.montage-ToggleSwitch--checked > .digit-ToggleSwitch-thumb {
+    transform: translate3d(46%,0,0);
+}
+
+.icon {
+    opacity:0.5;
+    vertical-align: top;
+    height: 15px;
+    width: 20px;
+    margin-top: 3px;
+}
+
+.enabled .icon {
+    opacity:1;
+}
+.conversionLabel {
+    color:lightgrey;
+}
+
+.enabled  .conversionLabel{
+    color:black;
+    font-weight:bold;
+}
