@@ -8,10 +8,6 @@
     display:inline-block;*/
 }
 
-.enabled {
-
-}
-
 .toggleSwitch.digit-ToggleSwitch {
     height:20px;
     width:30px;
@@ -31,22 +27,3 @@
     transform: translate3d(46%,0,0);
 }
 
-.icon {
-    opacity:0.5;
-    vertical-align: top;
-    height: 15px;
-    width: 20px;
-    margin-top: 3px;
-}
-
-.enabled .icon {
-    opacity:1;
-}
-.conversionLabel {
-    color:lightgrey;
-}
-
-.enabled  .conversionLabel{
-    color:black;
-    font-weight:bold;
-}

@@ -24,6 +24,15 @@ h1, h2, h3, h4, h5 {
     color: #151515;
     font-family: proxima-nova,sans-serif;
     font-weight: 300;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+label {
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 5px;
+    font-weight: bold;
 }
 
 /*h4, .h4, h5, .h5, h6, .h6 {
@@ -200,4 +209,61 @@ img{
     color: #fff;
     border-color: #f96332;
     text-decoration:underline;
+}
+
+.icon {
+    opacity:0.5;
+    vertical-align: top;
+    height: 15px;
+    width: 20px;
+    margin-top: 3px;
+}
+
+.enabled .icon {
+    opacity:1;
+}
+
+.label {
+    color:lightgrey;
+}
+
+.enabled  .label{
+    color:black;
+    font-weight:bold;
+}
+
+.wsResultsRep, .restResultsRep{
+
+}
+
+.restSlider .montage-Slider--track{
+    height:3px;
+    background:black;
+}
+
+.sliderLabels {
+    position:relative;
+    height:50px;
+}
+
+.sliderLabels h5{
+    display:inline-block;
+    position:absolute;
+}
+
+.sliderLabel {
+    left: 45%;
+    transform: translate(-50%, 0);
+}
+
+.restUsersSelect {
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.slider-thumb.A::before {
+    content: attr(data-label);
+    top: -25px;
+    position: absolute;
+    left: -30px;
 }

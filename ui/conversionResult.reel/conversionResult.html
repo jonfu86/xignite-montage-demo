@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <title>Main</title>
+
+    <link rel="stylesheet" type="text/css" href="conversionResult.css">
+
+    <script type="text/montage-serialization">
+        {
+            "owner": {
+                "properties": {
+                    "element": {"#": "main"}
+                }
+            },
+
+            "icon": {
+                "prototype": "montage/ui/image.reel",
+                "properties": {
+                    "element": {"#": "icon"}
+                },
+                "bindings": {
+                    "src": {"<-": "@owner.icon"}
+                }
+            },
+
+            "label": {
+                "prototype": "montage/ui/text.reel",
+                "properties": {
+                    "element": {"#": "label"}
+                },
+                "bindings": {
+                    "value": {"<-": "@owner.name"}
+                }
+            },
+
+            "bid": {
+                "prototype": "montage/ui/text.reel",
+                "properties": {
+                    "element": {"#": "bid"}
+                },
+                "bindings": {
+                    "value": {"<-": "@owner.bid"}
+                }
+            },
+
+            "ask": {
+                "prototype": "montage/ui/text.reel",
+                "properties": {
+                    "element": {"#": "ask"}
+                },
+                "bindings": {
+                    "value": {"<-": "@owner.ask"}
+                }
+            }
+
+
+        }
+    </script>
+</head>
+<body>
+    <div data-montage-id="main" data-montage-skin="light" class="conversionResult enabled">
+        <div class="icon-label-container">
+            <img data-montage-id="icon" class="icon"></img>
+            <div data-montage-id="label" class="label"></div>
+        </div>
+        <b>BID:</b><div data-montage-id="bid"></div>
+        <b>ASK:</b><div data-montage-id="ask"></div>
+    </div>
+</body>
+</html>

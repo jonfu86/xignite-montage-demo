@@ -10,7 +10,12 @@
         {
             "owner": {
                 "properties": {
-                    "element": {"#": "main"}
+                    "element": {"#": "main"},
+                    "currencySelector": {"@": "currencySelector"}
+                },
+                "bindings": {
+                    "_selectedList": {"<-": "@currencySelector.childComponents.filter{selected}.reversed()"},
+                    "restSliderValue": {"<-": "@restSlider.value"}
                 }
             },
 
@@ -32,6 +37,129 @@
                 "bindings": {
                     "name": {"<-": "@currencySelector:iteration.object.name"},
                     "icon": {"<-": "@currencySelector:iteration.object.icon"}
+                }
+            },
+
+            "wsResultsRep": {
+                "prototype": "montage/ui/repetition.reel",
+                "properties": {
+                    "element": {"#": "wsResultsRep"}
+                },
+                "bindings":{
+                    "content": {"<-":"@owner._selectedList"}
+                }
+            },
+
+            "wsConversionResult": {
+                "prototype": "ui/conversionResult.reel",
+                "properties": {
+                    "element": {"#": "wsConversionResult"}
+                },
+                "bindings": {
+                    "name": {"<-": "@wsResultsRep:iteration.object.name"},
+                    "icon": {"<-": "@wsResultsRep:iteration.object.icon"},
+                    "bid": {"<-": "@wsResultsRep:iteration.object.bid"},
+                    "ask": {"<-": "@wsResultsRep:iteration.object.ask"}
+                }
+            },
+
+            "wsServerRequestsLabel":{
+                "prototype": "montage/ui/text.reel",
+                "properties": {
+                    "element": {"#": "wsServerRequestsLabel"}
+                },
+                "bindings": {
+                    "value": {"<-": "'Server Requests: ' + @owner.wsServerRequestSpeed + '/s'"}
+                }
+            },
+
+            "wsTrafficLabel":{
+                "prototype": "montage/ui/text.reel",
+                "properties": {
+                    "element": {"#": "wsTrafficLabel"}
+                },
+                "bindings": {
+                    "value": {"<-": "'Estimated Server traffic: ' + @owner.wsTraffic + 'Mbps'"}
+                }
+            },
+
+            "restMSEC": {
+                "prototype": "montage/ui/text.reel",
+                "properties": {
+                    "element": {"#": "restMSEC"}
+                },
+                "bindings": {
+                    "value": {"<-": "'Using REST ' + @owner._restSliderValue +' msec between calls'"}
+                }
+            },
+
+            "restResultsRep": {
+                "prototype": "montage/ui/repetition.reel",
+                "properties": {
+                    "element": {"#": "restResultsRep"}
+                },
+                "bindings":{
+                    "content": {"<-":"@owner._selectedList"}
+                }
+            },
+
+            "restConversionResult": {
+                "prototype": "ui/conversionResult.reel",
+                "properties": {
+                    "element": {"#": "restConversionResult"}
+                },
+                "bindings": {
+                    "name": {"<-": "@restResultsRep:iteration.object.name"},
+                    "icon": {"<-": "@restResultsRep:iteration.object.icon"},
+                    "bid": {"<-": "@restResultsRep:iteration.object.bid"},
+                    "ask": {"<-": "@restResultsRep:iteration.object.ask"}
+                }
+            },
+
+            "restServerRequestsLabel":{
+                "prototype": "montage/ui/text.reel",
+                "properties": {
+                    "element": {"#": "restServerRequestsLabel"}
+                },
+                "bindings": {
+                    "value": {"<-": "'Server Requests: ' + @owner.restServerRequestSpeed + '/s'"}
+                }
+            },
+
+            "restTrafficLabel":{
+                "prototype": "montage/ui/text.reel",
+                "properties": {
+                    "element": {"#": "restTrafficLabel"}
+                },
+                "bindings": {
+                    "value": {"<-": "'Estimated Server traffic: ' + @owner.restTraffic + 'Mbps'"}
+                }
+            },
+
+            "restSlider": {
+                "prototype": "montage/ui/slider.reel",
+                "properties": {
+                    "element": {"#": "restSlider"},
+                    "value": 1000,
+                    "min":200,
+                    "max":2000
+                }
+            },
+
+            "sliderLabel": {
+                "prototype": "montage/ui/text.reel",
+                "properties":{
+                    "element": {"#": "sliderLabel"}
+                },
+                "bindings": {
+                    "value": {"<-": "@owner._restSliderValue"}
+                } 
+            },
+
+            "restUsersSelect": {
+                "prototype": "montage/ui/select.reel",
+                "properties": {
+                    "element": {"#": "restUsersSelect"}
                 }
             }
 
@@ -83,23 +211,41 @@
                         <h4>Using WebSocket</h4>
                     </div>
                     <div class="panel-body">
-                        Some Text                 
+                        <div data-montage-id="wsResultsRep" class="wsResultsRep">
+                            <div data-montage-id="wsConversionResult"></div>
+                        </div>
+                        <h5 data-montage-id="wsServerRequestsLabel" class="wsServerRequestsLabel"></h5>
+                        <h5 data-montage-id="wsTrafficLabel" class="wsTrafficLabel"></h5>                
                     </div>
                 </div>
 
                 <div class="panel panel-default RESTpanel">
                     <div class="panel-heading">
-                        <h4 class="ng-binding">Using REST 1000 msec between calls</h4>
+                        <h4 data-montage-id="restMSEC"></h4>
                     </div>
                     <div class="panel-body">
-                       Some Text
+                       <div data-montage-id="restResultsRep" class="restResultsRep">
+                            <div data-montage-id="restConversionResult"></div>
+                        </div>
+                        <h5 data-montage-id="restServerRequestsLabel" class="restServerRequestsLabel"></h5>
+                        <h5 data-montage-id="restTrafficLabel" class="restTrafficLabel"></h5>
+                        <h5>Adjust REST Polling Interval (ms)</h5>
+                        <div class="sliderLabels">
+                            <h5 style="left:0">200</h5>
+                            <h5 data-montage-id="sliderLabel" class="sliderLabel"></h5>
+                            <h5 style="right:0">2000</h5>
+                        </div>
+                        <div data-montage-id="restSlider" class="restSlider">
+                            <div data-montage-id="sliderThumb" class="slider-thumb A"></div> 
+                        </div>
+                        
                     </div>
                 </div>
                 <div class="userspanel">
                     <p>The charts above simulate the server impact of increasing the number of simultaneous
                         users</p>
                     <label for="restUsersSelect"> Number of users: </label>
-                    <select name="restUsersSelect" id="restUsersSelect" ng-model="totalUsers" class=".form-control ng-pristine ng-untouched ng-valid ng-not-empty">
+                    <select data-montage-id="restUsersSelect" class="restUsersSelect">
                         <option value="1000">1000</option>
                         <option value="10000">10000</option>
                         <option value="100000">100000</option>

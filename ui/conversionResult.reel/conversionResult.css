@@ -1,0 +1,12 @@
+.conversionResult{
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-bottom:8px;
+    width:43%;
+    padding:15px;
+    display:inline-block;
+}
+
+.conversionResult .icon, .conversionResult .label{
+    display:inline-block;
+}

@@ -13,7 +13,8 @@
                     "element": {"#": "main"}
                 },
                 "bindings": {
-                    "classList.has('enabled')": {"<-": "@checkbox.checked"}
+                    "classList.has('enabled')": {"<-": "@checkbox.checked"},
+                    "selected": {"<-": "@checkbox.checked"}
                 }
             },
 
@@ -34,10 +35,10 @@
                 }
             },
 
-            "conversionLabel": {
+            "label": {
                 "prototype": "montage/ui/text.reel",
                 "properties": {
-                    "element": {"#": "conversionLabel"}
+                    "element": {"#": "label"}
                 },
                 "bindings": {
                     "value": {"<-": "@owner.name"}
@@ -48,10 +49,10 @@
     </script>
 </head>
 <body>
-    <div data-montage-id="main" data-montage-skin="light" class="Main">
+    <div data-montage-id="main" data-montage-skin="light" class="conversionBox">
         <div data-montage-id="toggleSwitch" class="toggleSwitch"></div>
         <img data-montage-id="icon" class="icon"></img>
-        <div data-montage-id="conversionLabel" class="conversionLabel"></div>
+        <div data-montage-id="label" class="label"></div>
     </div>
 </body>
 </html>
