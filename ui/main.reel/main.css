@@ -236,6 +236,10 @@ img{
 
 }
 
+.restSlider:focus {
+    outline: none;
+}
+
 .restSlider .montage-Slider--track{
     height:3px;
     background:black;
@@ -251,9 +255,8 @@ img{
     position:absolute;
 }
 
-.sliderLabel {
-    left: 45%;
-    transform: translate(-50%, 0);
+.thumbLabel {
+    transform: translate(-30%, -200%);
 }
 
 .restUsersSelect {

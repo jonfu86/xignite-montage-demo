@@ -146,10 +146,10 @@
                 }
             },
 
-            "sliderLabel": {
+            "thumbLabel": {
                 "prototype": "montage/ui/text.reel",
                 "properties":{
-                    "element": {"#": "sliderLabel"}
+                    "element": {"#": "thumbLabel"}
                 },
                 "bindings": {
                     "value": {"<-": "@owner._restSliderValue"}
@@ -232,11 +232,15 @@
                         <h5>Adjust REST Polling Interval (ms)</h5>
                         <div class="sliderLabels">
                             <h5 style="left:0">200</h5>
-                            <h5 data-montage-id="sliderLabel" class="sliderLabel"></h5>
+                            
                             <h5 style="right:0">2000</h5>
                         </div>
                         <div data-montage-id="restSlider" class="restSlider">
-                            <div data-montage-id="sliderThumb" class="slider-thumb A"></div> 
+                            <div>
+                                <h5 data-montage-id="thumbLabel" class="thumbLabel"></h5>
+                                <div data-montage-id="sliderThumb" class="slider-thumb A montage-Slider--thumb">
+                                </div> 
+                            </div>
                         </div>
                         
                     </div>

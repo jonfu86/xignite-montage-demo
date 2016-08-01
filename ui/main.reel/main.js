@@ -2,6 +2,7 @@
  * @module ui/main.reel
  */
 var Component = require("montage/ui/component").Component,
+    HttpService = require("montage-data/logic/service/http-service").HttpService,
     Promise = require("montage/core/promise").Promise;
 
 /**
@@ -16,6 +17,8 @@ exports.Main = Component.specialize(/** @lends Main# */ {
             if(firstTime){
                 var self = this;
                 selectedList = function(){return self._selectedList;}
+
+                self.getXigniteToken();
                 // console.log(this.currencyConversions);
                 // this.addPathChangeListener("currencyConversions.selected", this, "handleCurrencySelected");
             }
@@ -55,17 +58,20 @@ exports.Main = Component.specialize(/** @lends Main# */ {
         value: null
     },
 
-    // fetchRestData: {
-    //     value: function ( ){
-    //         var url = "https://kaazing.xignite.com/xGlobalCurrencies.json/GetRealTimeRates?Symbols=" +
-    //             $scope.restRequestSymbolsString + "&_token=" + $scope.xigniteToken + "&_token_userid=" + $scope.xigniteUserId;
-                
+    getXigniteToken: {
+        value: function () {
+            var xhr = new XMLHttpRequest();
 
-    //         this.sendHttpRequest(url, header).then(function (data) { 
-    //             console.log(data);
-    //         });
-    //     }
-    // },
+            xhr.open('GET', 'http://demo2.kaazing.com/token', true);
+            xhr.send();
+
+            xhr.onreadystatechange = function () {
+                 var myArr = JSON.parse(xhr.responseText);
+                    console.log(myArr);
+            }
+            
+        }
+    },
 
     currencyConversions: {
         value: [
