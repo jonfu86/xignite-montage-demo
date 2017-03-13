@@ -14,16 +14,6 @@
                 }
             },
 
-            "icon": {
-                "prototype": "montage/ui/image.reel",
-                "properties": {
-                    "element": {"#": "icon"}
-                },
-                "bindings": {
-                    "src": {"<-": "@owner.icon"}
-                }
-            },
-
             "label": {
                 "prototype": "montage/ui/text.reel",
                 "properties": {
@@ -60,12 +50,16 @@
 </head>
 <body>
     <div data-montage-id="main" data-montage-skin="light" class="conversionResult enabled">
-        <div class="icon-label-container">
-            <img data-montage-id="icon" class="icon"></img>
-            <div data-montage-id="label" class="label"></div>
+       <!--  <div class="icon-label-container">
+            <img data-montage-id="icon" class="icon"></img> -->
+        <div data-montage-id="label" class="label"></div>
+        <!-- </div> -->
+        <div style="display:block">
+            <b>BID: </b><div data-montage-id="bid" style="display:inline-block"></div>
         </div>
-        <b>BID:</b><div data-montage-id="bid"></div>
-        <b>ASK:</b><div data-montage-id="ask"></div>
+        <div style="display:block">
+            <b>ASK: </b><div data-montage-id="ask" style="display:inline-block"></div>
+        </div>
     </div>
 </body>
 </html>

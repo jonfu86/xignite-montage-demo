@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <title>CoinBox</title>
+
+    <link rel="stylesheet" type="text/css" href="coinBox.css">
+    <link href='https://fonts.googleapis.com/css?family=Rubik+One|Heebo:400,800,900' rel='stylesheet' type='text/css'>
+
+    <script type="text/montage-serialization">
+        {
+            "owner": {
+                "properties": {
+                    "element": {"#": "main"}
+                }
+            },
+
+            "wsConversionResult": {
+                "prototype": "ui/conversionResult.reel",
+                "properties": {
+                    "element": {"#": "wsConversionResult"}
+                },
+                "bindings": {
+                    "name": {"<-": "@owner.wsResult.name"},
+                    "bid": {"<-": "@owner.wsResult.bid"},
+                    "ask": {"<-": "@owner.wsResult.ask"}
+                }
+            },
+
+            "restConversionResult": {
+                "prototype": "ui/conversionResult.reel",
+                "properties": {
+                    "element": {"#": "restConversionResult"}
+                },
+                "bindings": {
+                    "name": {"<-": "@owner.restResult.name"},
+                    "bid": {"<-": "@owner.restResult.bid"},
+                    "ask": {"<-": "@owner.restResult.ask"}
+                }
+            }
+
+            
+        }
+    </script>
+   <!--  "coin1": {
+        "prototype": "ui/coin.reel",
+        "properties": {
+            "element": {"#": "coin1"}
+        }
+    },
+
+    "coin2": {
+        "prototype": "ui/coin.reel",
+        "properties": {
+            "element": {"#": "coin2"}
+        }
+    },
+
+    "flag1": {
+        "prototype": "montage/ui/image.reel",
+        "properties": {
+            "element": {"#": "flag1"}
+        },
+        "bindings": {
+            "src": {"<-": "@owner.fromCountryFlag"}
+        }
+    },
+
+    "flag2": {
+        "prototype": "montage/ui/image.reel",
+        "properties": {
+            "element": {"#": "flag2"}
+        },
+        "bindings": {
+            "src": {"<-": "@owner.toCountryFlag"}
+        }
+    } -->
+</head>
+<body>
+
+    <div data-montage-id="main" data-montage-skin="light" class="coinBox">
+        <!-- <img src='../../assets/images/3x5/us.svg' data-montage-id="flag1" class="icon" style="display:inline-flex;align-self:center;flex-grow:0;width:125px;height:75px;cursor:pointer;user-select:none;-webkit-mask-image:-webkit-linear-gradient(left, rgba(0,0,0,1.0) 0%, rgba(0,0,0,1.0) 50%, rgba(0,0,0,0) 100%);" ></img> -->
+
+        <div class="dropbox">
+        </div>
+
+		<!-- <div data-montage-id="coin1" style="display:inline-flex;align-self:center;min-width:100px;flex-grow:0;width:100px;height:100px;cursor:pointer;user-select:none;" draggable="true"></div> -->
+        
+
+		<img src="../../assets/images/conversion_arrow.svg" style="display:inline-flex;align-self:center;width:80px;height:110px;"></img>
+
+        <div class="dropbox">
+        </div>
+
+		<!-- <div data-montage-id="coin2" style="display:inline-block;iflex-grow:0;min-width:100px;width:100px;height:100px;cursor:pointer;user-select:none;"></div> -->
+
+        <!-- <img src='../../assets/images/3x5/us.svg'  class="icon" data-montage-id="flag2" style="display:inline-flex;align-self:center;flex-grow:0;width:125px;height:75px;cursor:pointer;user-select:none;-webkit-mask-image:-webkit-linear-gradient(right, rgba(0,0,0,1.0) 0%, rgba(0,0,0,1.0) 50%, rgba(0,0,0,0) 100%);" ></img> -->
+        
+       <!--  <div style='display:inline-flex;flex-grow:0;text-align:right;padding-left:20px;padding-right:20px;'>BID:101.34<br>ASK:89.32</div>
+        <div style='display:inline-flex;flex-grow:0;text-align:right;padding-left:20px;padding-right:20px;'>BID:101.34<br>ASK:89.32</div> -->
+        <div data-montage-id="restConversionResult"></div>
+    
+        <div data-montage-id="wsConversionResult"></div>
+    
+
+
+    </div>
+
+</body>
+</html>

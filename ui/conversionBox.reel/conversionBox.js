@@ -14,7 +14,12 @@ exports.ConversionBox = Component.specialize(/** @lends ConversionBox# */ {
         value: function () {
 
         }
+    },
+    draw: {
+        value: function () {
+
+        }
     }
-    
-    
+
+
 });

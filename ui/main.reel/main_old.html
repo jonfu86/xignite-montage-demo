@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <title>Main</title>
+
+    <link rel="stylesheet" type="text/css" href="main.css">
+
+    <script type="text/montage-serialization">
+        {
+            "owner": {
+                "properties": {
+                    "element": {"#": "main"},
+                    "currencySelector": {"@": "currencySelector"}
+                },
+                "bindings": {
+                    "_selectedList": {"<-": "@currencySelector.childComponents.filter{selected}.reversed()"},
+                    "restSliderValue": {"<-": "@restSlider.value"}
+                }
+            },
+            "coin": {
+                "prototype": "ui/coin.reel",
+                "properties": {
+                    "element": {"#": "coin"}
+                }
+            },
+
+            "currencySelector": {
+                "prototype": "montage/ui/repetition.reel",
+                "properties": {
+                    "element": {"#": "currencySelector"}
+                },
+                "bindings": {
+                    "content": { "<-": "@owner.currencyConversions" }
+                }
+            },
+
+            "currencyConversions": {
+                "prototype": "ui/conversionBox.reel",
+                "properties": {
+                    "element": {"#": "currencyConversion"}
+                },
+                "bindings": {
+                    "name": {"<-": "@currencySelector:iteration.object.name"},
+                    "icon": {"<-": "@currencySelector:iteration.object.icon"}
+                }
+            },
+
+            "wsResultsRep": {
+                "prototype": "montage/ui/repetition.reel",
+                "properties": {
+                    "element": {"#": "wsResultsRep"}
+                },
+                "bindings":{
+                    "content": {"<-":"@owner._selectedList"}
+                }
+            },
+
+            "wsConversionResult": {
+                "prototype": "ui/conversionResult.reel",
+                "properties": {
+                    "element": {"#": "wsConversionResult"}
+                },
+                "bindings": {
+                    "name": {"<-": "@wsResultsRep:iteration.object.name"},
+                    "icon": {"<-": "@wsResultsRep:iteration.object.icon"},
+                    "bid": {"<-": "@wsResultsRep:iteration.object.bid"},
+                    "ask": {"<-": "@wsResultsRep:iteration.object.ask"}
+                }
+            },
+
+            "wsServerRequestsLabel":{
+                "prototype": "montage/ui/text.reel",
+                "properties": {
+                    "element": {"#": "wsServerRequestsLabel"}
+                },
+                "bindings": {
+                    "value": {"<-": "'Server Requests: ' + @owner.wsServerRequestSpeed + '/s'"}
+                }
+            },
+
+            "wsTrafficLabel":{
+                "prototype": "montage/ui/text.reel",
+                "properties": {
+                    "element": {"#": "wsTrafficLabel"}
+                },
+                "bindings": {
+                    "value": {"<-": "'Estimated Server traffic: ' + @owner.wsTraffic + 'Mbps'"}
+                }
+            },
+
+            "restMSEC": {
+                "prototype": "montage/ui/text.reel",
+                "properties": {
+                    "element": {"#": "restMSEC"}
+                },
+                "bindings": {
+                    "value": {"<-": "'Using REST ' + @owner._restSliderValue +' msec between calls'"}
+                }
+            },
+
+            "restResultsRep": {
+                "prototype": "montage/ui/repetition.reel",
+                "properties": {
+                    "element": {"#": "restResultsRep"}
+                },
+                "bindings":{
+                    "content": {"<-":"@owner._selectedList"}
+                }
+            },
+
+            "restConversionResult": {
+                "prototype": "ui/conversionResult.reel",
+                "properties": {
+                    "element": {"#": "restConversionResult"}
+                },
+                "bindings": {
+                    "name": {"<-": "@restResultsRep:iteration.object.name"},
+                    "icon": {"<-": "@restResultsRep:iteration.object.icon"},
+                    "bid": {"<-": "@restResultsRep:iteration.object.bid"},
+                    "ask": {"<-": "@restResultsRep:iteration.object.ask"}
+                }
+            },
+
+            "restServerRequestsLabel":{
+                "prototype": "montage/ui/text.reel",
+                "properties": {
+                    "element": {"#": "restServerRequestsLabel"}
+                },
+                "bindings": {
+                    "value": {"<-": "'Server Requests: ' + @owner.restServerRequestSpeed + '/s'"}
+                }
+            },
+
+            "restTrafficLabel":{
+                "prototype": "montage/ui/text.reel",
+                "properties": {
+                    "element": {"#": "restTrafficLabel"}
+                },
+                "bindings": {
+                    "value": {"<-": "'Estimated Server traffic: ' + @owner.restTraffic + 'Mbps'"}
+                }
+            },
+
+            "restSlider": {
+                "prototype": "montage/ui/slider.reel",
+                "properties": {
+                    "element": {"#": "restSlider"},
+                    "value": 1000,
+                    "min":200,
+                    "max":2000
+                }
+            },
+
+            "sliderLabel": {
+                "prototype": "montage/ui/text.reel",
+                "properties":{
+                    "element": {"#": "sliderLabel"}
+                },
+                "bindings": {
+                    "value": {"<-": "@owner._restSliderValue"}
+                }
+            },
+
+            "restUsersSelect": {
+                "prototype": "montage/ui/select.reel",
+                "properties": {
+                    "element": {"#": "restUsersSelect"}
+                }
+            }
+
+
+        }
+    </script>
+</head>
+<body>
+    <div data-montage-id="main" data-montage-skin="light" class="Main">
+        <div class="header">
+            <div class="header-logo">
+                <a href="//kaazing.com/" target="_blank"><img style="-webkit-user-select: none" src="https://s3.amazonaws.com/10up-new/wp-content/uploads/20160112214032/Kaazing-logo-115x115.png"></a>
+            </div>
+
+            <div class="header-text">
+                <h1>Streaming FX Demo</h1>
+                <h4>WebSocket vs. REST</h4>
+            </div>
+        </div>
+
+        <div class="kaazing-cta download">
+            <p><a href="https://kaazing.com/demos" class="button cta-button" target="_blank">More demos</a><a href="https://kaazing.com/getting-started" class="button cta-button" target="_blank">Build your app</a><a href="https://kaazing.com/download" class="button cta-button" target="_blank">Download</a><a href="https://kaazing.com/doc/5.0/index.html" class="button cta-button" target="_blank">Learn more</a>
+                <a href="https://github.com/kaazing/demos/tree/develop/xIgnite" class="button cta-button" target="_blank"><img class="alignnone wp-image-15227" title="View on GitHub" src="https://kaazing.com/wp-content/uploads/2016/06/github-cat-white-black-32.png" alt="github-cat-white-black-32" width="24" height="24">&nbsp; View on GitHub</a>
+            </p>
+        </div>
+
+        <div class="introbox">
+            <div class="panel-heading">This demo highlights the performance and accuracy benefits of WebSocket over REST for a streaming data application: real-time foreign currency exchange rates. Please go ahead and pick currency pairs from the following list:</div>
+            <div data-montage-id="currencySelector" class="currencySelector">
+                <div data-montage-id="currencyConversion" class="currencyConversion"></div>
+            </div>
+            <div class="panel-footer">
+                <h5>Real-time data provided by <a href="http://xignite.com/forex" target="_blank">
+                    <img src="../../assets/xignite-logo-text.png" alt="Xignite - Global Financial Market Data On-Demand" style="height:25px; width:100px;"></a>
+                </h5>
+                <p style="font-size: 12px">Xignite provides cloud-based financial market data APIs to help emerging companies and established enterprises deliver real-time and reference market data to their digital assets, such as websites and apps. Xignite’s clients include more than 1,000 financial services, media and software companies from disruptive fintech firms, such as Betterment, FutureAdvisor, Motif Investing, Personal Capital, Robinhood, StockTwits, Wealthfront and Yodlee, to leading financial institutions, exchanges and market data vendors including, NASDAQ OMX, SIX Financial Information and BMO.</p>
+            </div>
+        </div>
+        <div data-montage-id="coin" style="width:200px;height:200px;background:red;">
+
+
+
+        </div>
+        <div class="connectionBox">
+            <div class="panel-body">
+                <p>
+                    On the left of the table below, prices are <em>pushed</em> from the server to your browser using WebSocket.
+                    On the right side of the table, your browser is <em>polling</em> at a rate you specify to get the same
+                    exchange rates using a REST endpoint. The REST side will always be slightly behind the WebSocket side.
+                    The shorter the polling interval the closer REST will get but at the expense of more requests to the server.
+                </p>
+                <div class="panel panel-default wspanel">
+                    <div class="panel-heading">
+                        <h4>Using WebSocket</h4>
+                    </div>
+                    <div class="panel-body">
+                        <div data-montage-id="wsResultsRep" class="wsResultsRep">
+                            <div data-montage-id="wsConversionResult"></div>
+                        </div>
+                        <h5 data-montage-id="wsServerRequestsLabel" class="wsServerRequestsLabel"></h5>
+                        <h5 data-montage-id="wsTrafficLabel" class="wsTrafficLabel"></h5>
+                    </div>
+                </div>
+
+                <div class="panel panel-default RESTpanel">
+                    <div class="panel-heading">
+                        <h4 data-montage-id="restMSEC"></h4>
+                    </div>
+                    <div class="panel-body">
+                       <div data-montage-id="restResultsRep" class="restResultsRep">
+                            <div data-montage-id="restConversionResult"></div>
+                        </div>
+                        <h5 data-montage-id="restServerRequestsLabel" class="restServerRequestsLabel"></h5>
+                        <h5 data-montage-id="restTrafficLabel" class="restTrafficLabel"></h5>
+                        <h5>Adjust REST Polling Interval (ms)</h5>
+                        <div class="sliderLabels">
+                            <h5 style="left:0">200</h5>
+                            <h5 data-montage-id="sliderLabel" class="sliderLabel"></h5>
+                            <h5 style="right:0">2000</h5>
+                        </div>
+                        <div data-montage-id="restSlider" class="restSlider">
+                            <div data-montage-id="sliderThumb" class="slider-thumb A"></div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="userspanel">
+                    <p>The charts above simulate the server impact of increasing the number of simultaneous
+                        users</p>
+                    <label for="restUsersSelect"> Number of users: </label>
+                    <select data-montage-id="restUsersSelect" class="restUsersSelect">
+                        <option value="1000">1000</option>
+                        <option value="10000">10000</option>
+                        <option value="100000">100000</option>
+                        <option value="1000000">1000000</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

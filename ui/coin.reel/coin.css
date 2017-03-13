@@ -1,0 +1,26 @@
+.coin {
+
+}
+
+.coin.hover {
+    pointer-events:none;
+
+}
+
+.dashed {
+    border:2px dashed orange;
+    border-radius:calc(50%);
+
+
+}
+
+
+
+.hidden {
+    idisplay:none;
+
+}
+
+.aa {
+    -webkit-font-smoothing: antialiased;
+}

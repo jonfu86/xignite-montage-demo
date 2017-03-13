@@ -1,0 +1,64 @@
+.Countrystrip  {
+    position: absolute;
+    top: 20%;
+    /*margin-top: -500px;*/
+    left: 0;
+    right: 0;
+    height: 200px;
+}
+.Countrystrip-flow.montage-Flow {
+    position: initial;
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+}
+.Countrystrip-flow .montage-Flow-Repetition {
+    opacity: 1;
+    position:absolute;
+    top:40%;
+    left:0;
+    right:0;
+    bottom:initial;
+    -webkit-transition: opacity .5s;
+    -moz-transition: opacity .5s;
+    -ms-transition: opacity .5s;
+    transition: opacity .5s;
+}
+.Countrystrip-flow.is-hidden .montage-Flow-Repetition {
+    opacity: 0;
+}
+.montage-Flow-Slot {
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -ms-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+}
+.Countrystrip-flow .Countrystrip-image  {
+    position: absolute;
+    width: 180px;
+    height: 267px;
+    margin-left: -90px;
+    margin-top: -130px;
+    cursor: pointer;
+    background: #000;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+.Countrystrip-flow .Countrystrip-image:before {
+    content: "";
+    position: absolute;
+    top: -26px;
+    left: -33px;
+    width: 246px;
+    height: 332px;
+    /*background-image: url(frame.png);*/
+    pointer-events: none;
+    background-size: 246px 332px;
+    background-repeat: no-repeat;
+}
+
+.Countrystrip-blank{
+    /*height:100px;
+    width:500px;*/
+}

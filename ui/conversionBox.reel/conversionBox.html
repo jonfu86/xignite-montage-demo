@@ -3,30 +3,17 @@
 <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
     <title>Main</title>
-
     <link rel="stylesheet" type="text/css" href="conversionBox.css">
-
     <script type="text/montage-serialization">
         {
             "owner": {
                 "properties": {
                     "element": {"#": "main"}
-                },
-                "bindings": {
-                    "classList.has('enabled')": {"<-": "@checkbox.checked"},
-                    "selected": {"<-": "@checkbox.checked"}
-                }
-            },
-
-            "checkbox": {
-                "prototype": "digit/ui/toggle-switch.reel",
-                "properties": {
-                    "element": {"#": "toggleSwitch"}
                 }
             },
 
             "icon": {
-                "prototype": "montage/ui/image.reel",
+                "prototype": "./image.reel",
                 "properties": {
                     "element": {"#": "icon"}
                 },
@@ -34,25 +21,35 @@
                     "src": {"<-": "@owner.icon"}
                 }
             },
-
-            "label": {
+            "countrytitle": {
                 "prototype": "montage/ui/text.reel",
                 "properties": {
-                    "element": {"#": "label"}
+                    "element": {"#": "countrytitle"}
                 },
                 "bindings": {
-                    "value": {"<-": "@owner.name"}
+                    "value": {"<-": "@owner.countrytitle"}
+                }
+            },
+
+            "coin": {
+                "prototype": "ui/coin.reel",
+                "properties": {
+                    "element": {"#": "coin"}
+                },
+                "bindings": {
+                    "currencyName": {"<-": "@owner.coin"},
+                    "symbol": {"<-": "@owner.symbol"},
+                    "countrytitle": {"<-": "@owner.countrytitle"}
                 }
             }
-
         }
     </script>
 </head>
 <body>
     <div data-montage-id="main" data-montage-skin="light" class="conversionBox">
-        <div data-montage-id="toggleSwitch" class="toggleSwitch"></div>
-        <img data-montage-id="icon" class="icon"></img>
-        <div data-montage-id="label" class="label"></div>
+        <img data-montage-id="icon" class="icon boxflag">
+		<div data-montage-id="coin" class="boxcoin"></div>
+		<div data-montage-id="countrytitle" class="boxtitle"></div>
     </div>
 </body>
 </html>

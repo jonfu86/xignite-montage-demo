@@ -1,0 +1,16 @@
+.coinBox{
+    margin-left:20px;
+    width:calc(100% - 40px);
+    background-color:rgba(255,255,255,.2);
+    border-radius:10px;
+    height:110px;
+    margin-bottom:25px;
+    text-align:center;
+}
+
+.dropbox{
+    width: 185px;
+    height: 110px;
+    border: dashed 1px black;
+    display:inline-block;
+}

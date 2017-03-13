@@ -1,12 +1,13 @@
 .conversionResult{
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    margin-bottom:8px;
-    width:43%;
-    padding:15px;
-    display:inline-block;
+    width: 180px;
+    height:110px;
+    text-align:center;
+    float: right;
+    display:flex;
+    flex-direction:column;
+    padding-top:5px;
 }
 
-.conversionResult .icon, .conversionResult .label{
-    display:inline-block;
+.conversionResult > div {
+    flex-grow:1;
 }

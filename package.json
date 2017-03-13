@@ -2,9 +2,9 @@
     "name": "xignitemontagedemo",
     "version": "0.1.0",
     "dependencies": {
-        "montage": "montagejs/montage",
+        "montage": "montagejs/montage.git#v16.0.1",
         "digit": "~0.5.0",
-        "montage-data": "montagestudio/montage-data"
+        "d3-shape": "~1.0.1"
     },
     "devDependencies": {
         "montage-testing": "~0.4.0"

@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <title>Coin</title>
+
+    <link rel="stylesheet" type="text/css" href="coin.css">
+    <link href='https://fonts.googleapis.com/css?family=Rubik+One|Heebo:400,800,900' rel='stylesheet' type='text/css'>
+    <script type="text/montage-serialization">
+        {
+            "owner": {
+                "properties": {
+                    "element": {"#": "coin"},
+                    "path1": {"#": "path1"},
+                    "path2": {"#": "path2"},
+                    "tpath1": {"#": "tpath1"},
+                    "tpath2": {"#": "tpath2"},
+                    "group": {"#": "group"},
+                    "circle": {"#": "circle"},
+                    "csymbol": {"#": "csymbol"}
+                }
+            },
+            "symbolName": {
+                "prototype": "montage/ui/text.reel",
+                "properties": {
+                    "element": {"#": "csymbol"}
+                },
+                "bindings": {
+                    "d": { "<-": "@owner.getSymbol()" }
+                }
+            },
+            "countryName": {
+                "prototype": "montage/ui/text.reel",
+                "properties": {
+                    "element": {"#": "tpath1"}
+                },
+                "bindings": {
+                    "value": { "<-": "@owner.countrytitle" }
+                }
+            },
+            "countryName2": {
+                "prototype": "montage/ui/text.reel",
+                "properties": {
+                    "element": {"#": "tpath1b"}
+                },
+                "bindings": {
+                    "value": { "<-": "@owner.countrytitle" }
+                }
+            },
+            "currencyName": {
+                "prototype": "montage/ui/text.reel",
+                "properties": {
+                    "element": {"#": "tpath2"}
+                },
+                "bindings": {
+                    "value": { "<-": "@owner.currencyName" }
+                }
+            },
+            "currencyName2": {
+                "prototype": "montage/ui/text.reel",
+                "properties": {
+                    "element": {"#": "tpath2b"}
+                },
+                "bindings": {
+                    "value": { "<-": "@owner.currencyName" }
+                }
+            },
+            "symbol": {
+                "prototype": "montage/ui/text.reel",
+                "properties": {
+                    "element": {"#": "symbol"}
+                },
+                "bindings": {
+                    "value": { "<-": "@owner.symbol" }
+                }
+            }
+
+        }
+    </script>
+</head>
+<body>
+
+    <svg data-montage-id="coin"  version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+		 viewBox="0 0 200 200" style="enable-background:new 0 0 200 200;" xml:space="preserve" class="coin" xstyle='background-image:url(../../assets/images/coin_back.jpg);'>
+
+	<style type="text/css">
+		.st0{fill:#F7941D;stroke:#000000;stroke-miterlimit:10;}
+		.bb {
+		background-image:url(../../assets/images/coin_back.jpg);
+		}
+		.goldnormal {
+		    fill:url(#coinback);
+		    filter:url(#dropshadow);
+		}
+		.goldglow {
+			fill:url(#coinback);
+			filter:url(#dropshadowgold);
+			filter: hue-rotate(220deg) saturate(5);
+			opacity:.8;
+		}
+
+		.scaled {
+			transform-origin:50% 50%;
+			transform:translate(10px, 8px) scale(.9);
+		}
+        .scaled_pushed {
+			transform-origin:50% 50%;
+			transform:translate(10px, 8px) scale(.9);
+
+		}
+
+
+	</style>
+
+	<defs>
+		<pattern id="coinback" patternUnits="objectBoundingBox" alt="userSpaceOnUse" width="1" height="1">
+			  <image xlink:href="../../assets/images/coin_back.jpg"
+				x="0" y="0" width="200" height="200">
+			  </image>
+		</pattern>
+		<path data-montage-id="path1" id="MyPath1"
+				  d="m5,100 a80,80 0 0 0 160,0" />
+				<!--circle id="MyPath" class="st0" cx="100.6" cy="100" r="70.4" fill="green" /-->
+		<path data-montage-id="path2" id="MyPath2"
+				  d="m5,100 a80,80 0 0 1 160,0" />
+				<!--circle id="MyPath" class="st0" cx="100.6" cy="100" r="70.4" fill="green" /-->
+
+		<linearGradient id="golden" x1="0%" y1="0%" x2="100%" y2="100%">
+		      <stop offset="0%" style="stop-color:rgb(255,230,91);stop-opacity:1" />
+		      <stop offset="50%" style="stop-color:rgb(220,147,34);stop-opacity:1" />
+		      <stop offset="100%" style="stop-color:rgb(251,255,16);stop-opacity:1" />
+        </linearGradient>
+		<linearGradient id="golden1" x1="0%" y1="0%" x2="100%" y2="100%">
+		      <stop offset="0%" style="stop-color:rgb(255,230,91);stop-opacity:.6" />
+		      <stop offset="50%" style="stop-color:rgb(220,147,34);stop-opacity:.6" />
+		      <stop offset="100%" style="stop-color:rgb(251,255,16);stop-opacity:.6" />
+        </linearGradient>
+
+        <linearGradient id="golden2" x1="0%" y1="0%" x2="100%" y2="100%">
+				      <stop offset="0%" style="stop-color:rgb(251,255,16);stop-opacity:1" />
+				      <stop offset="50%" style="stop-color:rgb(255,230,91);stop-opacity:1" />
+				      <stop offset="100%" style="stop-color:rgb(220,147,34);stop-opacity:1" />
+        </linearGradient>
+
+        <linearGradient id="golden3" x1="0%" y1="0%" x2="100%" y2="100%">
+				      <stop offset="0%" style="stop-color:rgb(255,230,91);stop-opacity:1" />
+				      <stop offset="50%" style="stop-color:rgb(220,147,34);stop-opacity:1" />
+				      <stop offset="100%" style="stop-color:rgb(251,255,16);stop-opacity:1" />
+        </linearGradient>
+<filter id="dropshadow" height="130%">
+  <feGaussianBlur in="SourceAlpha" stdDeviation="5"/> <!-- stdDeviation is how much to blur -->
+  <feOffset dx="1" dy="2" result="offsetblur"/> <!-- how much to offset -->
+  <feMerge>
+    <feMergeNode/> <!-- this contains the offset blurred image -->
+    <feMergeNode in="SourceGraphic"/> <!-- this contains the element that the filter is applied to -->
+  </feMerge>
+</filter>
+<filter id="dropshadowgold" height="130%">
+  <feOffset dx="1" dy="2" result="offsetblur"/> <!-- how much to offset -->
+      <feColorMatrix result="matrixOut" "in="matrixOut" type="matrix"
+      values="1.0 0 0 0 0 0 1.0 0 0 0 0 0 0.2 0 0 0 0 0 1 0" />
+      <feColorMatrix result="matrixOut" "in="SourceAlpha" type="matrix"
+      values="1.0 0 0 0 0 0 1.0 0 0 0 0 0 0.2 0 0 0 0 0 1 0" />
+  <feGaussianBlur result="blurOut" in="matrixOut" stdDeviation="8"/> <!-- stdDeviation is how much to blur -->
+      <feBlend in="SourceGraphic" in2="blurOut" mode="normal" />
+
+  <feMerge>
+    <feMergeNode/> <!-- this contains the offset blurred image -->
+    <feMergeNode in="SourceGraphic"/> <!-- this contains the element that the filter is applied to -->
+  </feMerge>
+</filter>
+           <filter id="inset-shadow" x="-50%" y="-50%" width="200%" height="200%">
+		    <feComponentTransfer in=SourceAlpha>
+		      <feFuncA type="table" tableValues="1 0" />
+		    </feComponentTransfer>
+
+		    <feGaussianBlur stdDeviation="2"/>
+		    <feOffset dx="-2" dy="-2" result="offsetblur"/>
+		    <feFlood flood-color="rgb(20, 0, 0)" result="color"/>
+		    <feComposite in2="offsetblur" operator="in"/>
+		    <feComposite in2="SourceAlpha" operator="in" />
+
+
+		    <feMerge>
+		      <feMergeNode in="SourceGraphic" />
+		      <feMergeNode />
+		    </feMerge>
+		  </filter>
+		<filter id="glow" x="0%" y="0%" width="160%" height="160%">
+			<feGaussianBlur stdDeviation="2 2" result="glow"/>
+			<feMerge>
+			<feMergeNode in="glow"/>
+			<feMergeNode in="glow"/>
+			<feMergeNode in="glow"/>
+			</feMerge>
+		</filter>
+          <filter id="outset-shadow" x="-50%" y="-50%" width="200%" height="200%">
+		    <feComponentTransfer in=SourceAlpha>
+		      <feFuncA type="table" tableValues="1 0" />
+		    </feComponentTransfer>
+
+		    <feGaussianBlur stdDeviation="3"/>
+		    <feOffset dx="0" dy="0" result="offsetblur"/>
+		    <feFlood flood-color="rgb(255, 255, 255)" result="color"/>
+		    <feComposite in2="offsetblur" operator="in"/>
+		    <feComposite in2="SourceAlpha" operator="in" />
+
+
+		    <feMerge>
+		      <feMergeNode in="SourceGraphic" />
+		      <feMergeNode />
+		    </feMerge>
+		  </filter>
+
+             <filter id="lightMe0">
+		      <feDiffuseLighting in="SourceGraphic" result="light" lighting-color="white">
+		        <fePointLight x="-150" y="30" z="70" />
+		        <!--fePointLight x="150" y="60" z="75" /-->
+		      </feDiffuseLighting>
+
+		      <feComposite in="SourceGraphic" in2="light"
+		                   operator="arithmetic" k1="1" k2="0" k3="0" k4="0"/>
+		    </filter>
+		    <filter id="lightMe1">
+		      <feDiffuseLighting in="SourceGraphic" result="light" lighting-color="white">
+		        <fePointLight x="-150" y="30" z="70" />
+		        <!--fePointLight x="150" y="60" z="75" /-->
+		      </feDiffuseLighting>
+
+		      <feComposite in="SourceGraphic" in2="light"
+		                   operator="arithmetic" k1="1" k2="0" k3="0" k4="0"/>
+		    </filter>
+
+		    <filter id="lightMe2">
+		      <feDiffuseLighting in="SourceGraphic" result="light" lighting-color="white">
+		        <fePointLight x="-150" y="30" z="100" />
+		        <!--fePointLight x="150" y="60" z="75" /-->
+		      </feDiffuseLighting>
+
+		      <feComposite in="SourceGraphic" in2="light"
+		                   operator="arithmetic" k1="3" k2="0" k3="0" k4="0"/>
+		    </filter>
+
+
+	</defs>
+	<g data-montage-id="group" class="scaled" draggable="true">
+
+    <circle data-montage-id="circle" cx="100" cy="100" r="100" class="goldnormal" />
+
+    <!--circle cx="100" cy="100" r="95" fill="url(#golden2)" />
+    <circle cx="100" cy="100" r="70" fill="url(#golden)" /-->
+
+	<text data-montage-id="symbol" font-weight="900" font-family="Heebo, 'Rubik One', Impact, 'Helvetica Black', 'Helvetica Bold', sans-serif;"  font-size="100" text-anchor="middle" x="100" y="95" alignment-baseline="central" fill="url(#golden1)" filter="url(#lightMe1)" style="display:none;">
+	$
+	</text>
+
+
+	<path data-montage-id="csymbol" d="M48.5,15.5c0.2-1.1,0.3-2,0.5-3.2c2.1,0,4.2-0.3,6.2,0.1c0.9,0.1,1.6,1.4,2.8,2.4c2.2,0.2,4.8,0.3,7.5,0.7c1.9,0.3,3.8,0.9,5.7,1.5c1.3,0.4,1.7,1.2,1.3,2.5c-0.7,2.2-1.4,4.5-2.3,7.1c-4.3-1.6-8.5-2.4-13.1-1.9c-0.1,1.2-0.4,2.5-0.4,3.7c0,11,0.1,22,0.2,33c0,3.8,0,7.5,0,11.3c0,1,0.1,1.9,0.2,3c3,0.3,5.6-0.1,8.2-1.7c0-5.3,0-10.6,0-16.3c-1.2-0.1-2.4-0.3-3.5-0.4c-2-0.2-2.6-0.8-2.6-2.8c-0.1-6.1,0-5.6,5.1-5.6c2.7,0,5.4,0,8,0c2.2,0,2.6,0.4,2.6,2.7c0,8.8,0,17.6,0,26.5c0,1.7-0.9,2.5-2.1,3.2c-4,2.3-8.4,3.5-13,4c-0.8,0.1-1.6,0.1-2.4,0.1c-0.4,0.8-0.7,1.6-1.1,2.5c-2.4,0-4.7,0-7.2,0c-0.2-1-0.4-1.8-0.7-2.7c-0.2-0.2-0.5-0.4-0.7-0.5c-10-2.2-16.5-8.4-20-18c-2.5-6.9-3.1-13.8-2.4-21c0.4-4.9,1.4-9.6,3.6-14c3.7-7.5,9.3-12.7,17.3-15.3C46.9,16.1,47.7,15.8,48.5,15.5z M48.6,26c-4.4,2.7-8,5.6-9.9,10.1c-3.8,8.6-3.6,17.3-1,26.1c1.2,4.1,3.4,7.8,7.1,10.3c1.1,0.7,2.3,1.2,3.8,2C48.6,58.1,48.6,42.3,48.6,26z" transform="translate(45, 45) scale(1.1)" fill="url(#golden1)" filter="url(#lightMe2)" />
+
+	<text  font-family="Heebo, Verdana" font-weight="900"  font-size="18.5" text-anchor="middle" fill="rgba(240,219,119,1.0)" filter="url(#glow)">
+	    <textPath data-montage-id="tpath2" xlink:href="#MyPath1" startOffset="50%" class="aa">
+	      United States
+	    </textPath>
+    </text>
+	<text  font-family="Heebo, Verdana" font-weight="900"  font-size="18.5" text-anchor="middle" fill="rgba(0,0,0,.9)" >
+	    <textPath data-montage-id="tpath2b" xlink:href="#MyPath1" startOffset="50%" class="aa">
+	      United States
+	    </textPath>
+    </text>
+
+    <text font-family="Heebo, Verdana" font-weight="900" font-size="18.5" text-anchor="middle" fill="rgba(240,219,119,1.0)" filter="url(#glow)">
+		    <textPath data-montage-id="tpath1" xlink:href="#MyPath2" startOffset="50%" class="aa">
+		      Dollar
+		    </textPath>
+    </text>
+     <text font-family="Heebo, Verdana" font-weight="900" font-size="18.5" text-anchor="middle" fill="rgba(0,0,0,.9)" >
+			    <textPath data-montage-id="tpath1b" xlink:href="#MyPath2" startOffset="50%" class="aa">
+			      Dollar
+			    </textPath>
+    </text>
+	<!--circle class="st0" cx="100.6" cy="100" r="90.7"/-->
+	<!--path data-montage-id="path" d="" fill="yellow" transform="translate(100,100)" --/>
+	</g>
+    </svg>
+
+</body>
+</html>
