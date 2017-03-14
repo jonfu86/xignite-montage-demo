@@ -35,8 +35,6 @@
                 }
             },
 
-  
-
             "wsServerRequestsLabel":{
                 "prototype": "montage/ui/text.reel",
                 "properties": {
@@ -56,10 +54,6 @@
                     "value": {"<-": "@owner.wsTraffic + ' Mbps'"}
                 }
             },
-
-          
-
-         
 
             "restServerRequestsLabel":{
                 "prototype": "montage/ui/text.reel",
@@ -132,15 +126,6 @@
 
         }
     </script>
-   <!--    "restMSEC": {
-                "prototype": "montage/ui/text.reel",
-                "properties": {
-                    "element": {"#": "restMSEC"}
-                },
-                "bindings": {
-                    "value": {"<-": "'REST ' + @owner._restSliderValue +' msec between calls'"}
-                }
-            }, -->
 </head>
 <body>
     <div data-montage-id="main" data-montage-skin="light" class="Main">
@@ -163,7 +148,10 @@
 
         <div class="introbox">
             <div class="text-panel">This demo highlights the performance and accuracy benefits of WebSocket over REST for a streaming data application: real-time foreign currency exchange rates. Please go ahead and pick currency pairs from the following list:</div>
-            <div data-montage-id="countrystrip" class="Main-strip"></div>
+            
+        </div>
+        <div class="flowbox">
+            <div data-montage-id="countrystrip"></div>
         </div>
         <div class="results_container">
             <div class="results_titlebar">

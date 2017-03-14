@@ -23,6 +23,7 @@ exports.CountryStrip = Component.specialize(/** @lends CountryStrip# */ {
             this._element.addEventListener("touchstart", this, true);
             this._element.addEventListener("mousedown", this, true);
             this._element.addEventListener("mousemove", this, true);
+            this._element.addEventListener("mouseup", this, true);
         }
 
     },
@@ -36,26 +37,23 @@ exports.CountryStrip = Component.specialize(/** @lends CountryStrip# */ {
 
     captureMousedown: {
         value: function (event) {
+                    
             if (event.target && event.target.component){
                 if (event.target.component.identifier == "country") {
                     // console.log('hit');
+                    this.countryFlow._flowTranslateComposer.enabled = false;
                 }
             }
         }
     },
 
-    capturePointermove: {
+    captureMouseup: {
         value: function (event) {
-                debugger;
-            if (event.pointerType === this._MOUSE_POINTER || (window.MSPointerEvent && event.pointerType === window.MSPointerEvent.MSPOINTER_TYPE_MOUSE)) {
-                this.captureMousemove(event);
-            } else if (event.pointerType === this._TOUCH_POINTER || (window.MSPointerEvent && event.pointerType === window.MSPointerEvent.MSPOINTER_TYPE_TOUCH)) {
-                this.captureTouchmove(event);
-            }
+            console.log('up');
+            this.countryFlow._flowTranslateComposer.enabled = true;
         }
     },
     
-
     templateDidLoad: {
         value: function () {
          
@@ -63,16 +61,4 @@ exports.CountryStrip = Component.specialize(/** @lends CountryStrip# */ {
     }
 
 
-},
-{
-capturePointermove: {
-        value: function (event) {
-                debugger;
-            if (event.pointerType === this._MOUSE_POINTER || (window.MSPointerEvent && event.pointerType === window.MSPointerEvent.MSPOINTER_TYPE_MOUSE)) {
-                this.captureMousemove(event);
-            } else if (event.pointerType === this._TOUCH_POINTER || (window.MSPointerEvent && event.pointerType === window.MSPointerEvent.MSPOINTER_TYPE_TOUCH)) {
-                this.captureTouchmove(event);
-            }
-        }
-}
 });
