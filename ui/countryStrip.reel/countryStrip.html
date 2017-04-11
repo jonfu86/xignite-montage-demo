@@ -10,7 +10,8 @@
             "owner": {
                 "properties": {
                     "element": {"#": "main"},
-                    "countryFlow": {"@": "countryFlow"}
+                    "countryFlow": {"@": "countryFlow"},
+                    "country": {"@": "country"}
                 }
             },
             "countryFlow": {
@@ -52,7 +53,7 @@
                 }
             },
             "country": {
-                "prototype": "ui/conversionBox.reel",
+                "prototype": "ui/country.reel",
                 "properties": {
                     "element": {"#": "country"}
                 },
@@ -69,6 +70,13 @@
             }
             
         }
+    </script>
+    <script>
+    // function handleDragStart(event) {
+    //     console.log('start', event);
+    //     // return true;
+    // }
+    // ondragstart="handleDragStart(event);
     </script>
     
 </head>

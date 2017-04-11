@@ -1,20 +1,20 @@
 /**
- * @module ui/conversionBox.reel
+ * @module ui/country.reel
  */
 var Component = require("montage/ui/component").Component;
 
 /**
- * @class ConversionBox
+ * @class Country
  * @extends Component
  */
-exports.ConversionBox = Component.specialize(/** @lends ConversionBox# */ {
-
+exports.Country = Component.specialize(/** @lends Country# */ {
 
     enterDocument: {
         value: function () {
-
+           
         }
     },
+
     draw: {
         value: function () {
 

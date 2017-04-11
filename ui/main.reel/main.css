@@ -230,6 +230,11 @@ label {
     text-align: center;
 }
 
+.addConverterButton{
+    float:left;
+    cursor:pointer;
+}
+
 .currencySelector{
     padding:15px;
     text-align:center;

@@ -12,47 +12,39 @@ exports.CountryStrip = Component.specialize(/** @lends CountryStrip# */ {
 
 
    constructor: {
-        value: function Countrystrip () {
+        value: function CountryStrip () {
             this.super();
         }
     },
 
-    enterDocument: {
-        value: function (firstTime) {
+    prepareForActivationEvents: {
+        value: function() {
+            this.countryFlow.element.addEventListener("dragstart", this, false);
+            // this._element.addEventListener("drag", this._handleDrag, true);
 
-            this._element.addEventListener("touchstart", this, true);
-            this._element.addEventListener("mousedown", this, true);
-            this._element.addEventListener("mousemove", this, true);
-            this._element.addEventListener("mouseup", this, true);
+            // this._element.addEventListener("dragend", this._handleDragEnd, true);
         }
 
     },
 
-    captureMousemove: {
-        value: function  (event) {
-            event.defaultPrevented = true;
-            // console.log('z', event)
-        }
-    },
-
-    captureMousedown: {
+    handleDragStart: {
         value: function (event) {
-                    
-            if (event.target && event.target.component){
-                if (event.target.component.identifier == "country") {
-                    // console.log('hit');
-                    this.countryFlow._flowTranslateComposer.enabled = false;
-                }
-            }
+            console.log("handleDragStart",event);
         }
     },
 
-    captureMouseup: {
-        value: function (event) {
-            console.log('up');
-            this.countryFlow._flowTranslateComposer.enabled = true;
-        }
-    },
+    // _handleDragStart: {
+    //     value: function (event) {
+    //         this.component.countryFlow._flowTranslateComposer.enabled = true;
+    //     }
+    // },
+
+    // _handleDragEnd: {
+    //     value: function (event) {
+    //         // event.preventDefault();
+    //         console.log(event.target);
+    //     }
+    // },
     
     templateDidLoad: {
         value: function () {

@@ -17,49 +17,92 @@ exports.Main = Component.specialize(/** @lends Main# */ {
 
             if(firstTime){
                 var self = this;
-
-                //this.coinbox1.countryName = "Canada";
-
-                selectedList = function(){return self._selectedList;}
                 
-      //          if (0) {
-      //           APP = this.flow3;
-      //           var paths = this.flow3["paths"];
-          
-      //          paths = paths[0];
-      //          knots = paths.knots;
-             
+                selectedList = function(){return self._selectedList;}
+                this._element.addEventListener("touchstart", this, true);
+	            this._element.addEventListener("mousedown", this, true);
+	            this._element.addEventListener("mousemove", this, true);
+	            this._element.addEventListener("mouseup", this, true);
 
-      //           if (this.flow3) {
-
-      //              // var knots = this.flow3._paths._knots;
-      //             //  alert(knots);
-
-      //               function pointOnCircle(cx, cy, radius, angle) {
-      //                   var x = cx + radius * Math.cos(angle);
-      //                   var y = cy + radius * Math.sin(angle);
-						// var x = (radius * Math.cos(angle * Math.PI / 180.0)) + cx;
-						// var y = (radius * Math.sin(angle * Math.PI / 180.0)) + cy;
-      //                   return {x:x,y:y}
-      //               }
-      //               knots.length = 0;
-      //               for (var a = 0; a < 48; a++) {
-      //                   var p = pointOnCircle(0,0,1200, a*7.5);
-      //                   p.y -= 500;
-      //                   console.log("{\n\"knotPosition\": [" + (-1)*p.x + ", 0, " + p.y + "],\n\"nextHandlerPosition\": [" + (-1)*p.x + ", 0, " + p.y + "],\n \"previousHandlerPosition\": [" + (-1)*p.x + ", 0, " + p.y + "],\n \"previousDensity\": 1,\n\"nextDensity\":1,\n \"rotateY\":" + ((1)*((-90 + (a*7.5))*(Math.PI/180.0))) + "\n},");
-
-
-
-
-      //               }
-
-
-
-      //           }
-      //           }
-
-                //alert(this.flow3);
+	            this._element.addEventListener("dragstart", this, true);
+	            this._element.addEventListener("drop", this._handleDrop, true);
+      
             }
+        }
+    },
+
+    captureMousedown: {
+        value: function (event) {
+ 			//disabling flow if a flag is the target to allow html5 drag
+            if (event.target && event.target.component){
+                if (event.target.component.identifier == "country") {
+                	this._countryName = event.target.component.countryName;
+                	
+                	this.countryStrip.countryFlow._flowTranslateComposer._cancel();
+                    // this.countryStrip.countryFlow._flowTranslateComposer.enabled = false;
+                }
+            }
+        }
+    },
+
+    captureMouseup: {
+        value: function (event) {
+        	// console.log(event.target);
+            if (event.target && event.target.component){
+
+                if (event.target.component.identifier == "country") {
+                	console.log(event.target.component.countryName);
+                    // this.countryStrip.countryFlow._flowTranslateComposer.enabled = true;
+                }
+                // if (event.target.component.identifier == "dropbox1") {
+                // 	console.log(this._countryName);
+                // }
+            }
+        }
+    },
+
+    _converterBoxes: {
+    	value: [
+    		{"country1": null, "country2": null, "name": "USDGBP", "ask": 89.32 , "bid": 101.34, "id": 0}
+    	]
+    },
+
+    _counter: {
+    	value: 0
+    },
+
+    counter: {
+    	get: function () {
+            return this._counter;
+        },
+        set: function (counter) {
+            this._counter = counter;
+        }
+    },
+
+    handleAddConverterButtonAction: {
+    	value: function() {
+    		// console.log(this.converterRep);
+    		if(this.converterRep.iterations.length < 3){
+    			this._counter++;
+    			this._converterBoxes.push({"country1": null, "country2": null, "name": null, "ask": null , "bid": null, "id": this.counter});
+    		} else {
+    			alert('You have reached maximum number of comparisons');
+    		}
+    		// this._counter++;
+    		// this._converterBoxes.push({"country1": null, "country2": null, "name": null, "ask": null , "bid": null, "id": this.counter});
+    	}
+    },
+
+    captureDragStart: {
+        value: function (event) {
+            this.component.countryStrip.countryFlow._flowTranslateComposer.enabled = true;
+        }
+    },
+
+    _handleDrop: {
+        value: function (event) {
+            console.log(event);
         }
     },
 

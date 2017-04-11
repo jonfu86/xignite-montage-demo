@@ -8,20 +8,47 @@
         {
             "owner": {
                 "properties": {
-                    "element": {"#": "main"}
+                    "element": {"#": "main"},
+                    "countryStrip": {"@": "countryStrip"},
+                    "converterRep": {"@": "converterRep"}
                 },
                 "bindings": {
                     "restSliderValue": {"<-": "@restSlider.value"}
                 }
             },
-            "coinbox1": {
-                "prototype": "ui/coinBox.reel",
+            "addConverterButton": {
+                "prototype": "montage/ui/button.reel",
                 "properties": {
-                    "element": {"#": "coinbox1"}
+                    "element": {"#": "addConverterButton"},
+                    "label": "Add New Comparison"
+                },
+                "listeners": [
+                    {
+                        "type": "action",
+                        "listener": {"@": "owner"}
+                    }
+                ]
+            },
+            "converterRep": {
+                "prototype": "montage/ui/repetition.reel",
+                "properties": {
+                    "element": {"#": "converterRep"}
                 },
                 "bindings": {
-                    "wsResult": {"<-": "@owner._selectedList"},
-                    "restResult": {"<-": "@owner._selectedList"}
+                    "content": {"<-": "@owner._converterBoxes"}
+                }
+            },
+            "converterBox": {
+                "prototype": "ui/converterBox.reel",
+                "properties": {
+                    "element": {"#": "converterBox"}
+                },
+                "bindings": {
+                    "wsResult": {"<-": "@converterRep:iteration.object"},
+                    "restResult": {"<-": "@converterRep:iteration.object"},
+                    "id": {"<-": "@converterRep:iteration.object.id"},
+                    "counter": {"<->": "@owner._counter"},
+                    "converterBoxes":{"<->": "@owner._converterBoxes"}
                 }
             },
             
@@ -155,14 +182,16 @@
         </div>
         <div class="results_container">
             <div class="results_titlebar">
+                
 				<div class="panel-heading">
+                    <button data-montage-id="addConverterButton" class="addConverterButton"></button>
 					<h4>WebSocket</h4>
                     <h4>REST</h4>
 				</div>   
             </div>
 
-            <div data-montage-id="coinboxes">
-                <div data-montage-id="coinbox1"></div>
+            <div data-montage-id="converterRep">
+                <div data-montage-id="converterBox"></div>
             </div>
 
             <div class="results-body" style="margin-right:20px">
