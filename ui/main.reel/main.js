@@ -24,10 +24,88 @@ exports.Main = Component.specialize(/** @lends Main# */ {
 	            this._element.addEventListener("mousemove", this, true);
 	            this._element.addEventListener("mouseup", this, true);
 
-	            this._element.addEventListener("dragstart", this, true);
-	            this._element.addEventListener("drop", this._handleDrop, true);
+	            this._element.addEventListener("dragstart", this, false);
+	            this._element.addEventListener("dragend", this, false);
+	            this._element.addEventListener("drop", this, false);
+	            this._element.addEventListener("dragover", this, false);
+	            this._element.addEventListener("dragenter", this, false);
+	            this._element.addEventListener("dragleave", this, false);
       
             }
+        }
+    },
+
+    _dragData: {
+    	value: null
+    },
+
+    handleDragstart: {
+        value: function (event) {
+        	var self = this;
+
+        	if(event.target.component.identifier == "country") {
+        		var country = event.target.component;
+        			this._dragData = country;
+        			// this._dragTarget = country;
+        			// set = {countrytitle: country.countrytitle, icon: country.icon},
+        			// data = JSON.stringify(set);
+        		// event.dataTransfer.setData("text/plain", data);
+        	}
+            // console.log("handleDragstart", event.target);
+        }
+    },
+
+    handleDragend: {
+        value: function (event) {
+            // console.log("handleDragend", event.target);
+        }
+    },
+
+    handleDrop: {
+        value: function (event) {
+            
+            // console.log("drop", event.target);
+            // move dragged elem to the selected drop target
+            if(event.target.classList.contains("dropbox")) {
+            	event.preventDefault();
+            	// console.log(event.target.component);
+             	// event.target.style.background = "blue";
+
+             	// var data = event.dataTransfer.getData("text/plain"),
+             	// 	result = JSON.parse(data);
+             	// 	console.log(result);
+             	// var	country = {name: this._dragData.countrytitle, icon: this._dragData.icon, coin: this._dragData.coin};
+             	// console.log(event.target);
+             	// event.target.append(this._dragData._element);
+             	
+             	event.target.component.iso3 = this._dragData.iso3;
+             	event.target.component.icon = this._dragData.icon;
+             	event.target.component.coin = this._dragData.coin;
+             	event.target.component.countryName = this._dragData.countryName;
+            }
+        }
+    },
+
+    handleDragover: {
+        value: function(event) {
+            event.preventDefault();
+            // console.log('over', event);
+
+        }
+    },
+
+    handleDragenter: {
+        value: function(event) {
+            // console.log('enter', event.target);
+            if(event.target.classList.contains("dropbox")) {
+            	// event.target.style.background = "purple";
+            }
+        }
+    },
+
+    handleDragleave: {
+        value: function(event) {
+            // console.log('leave', event.target);
         }
     },
 
@@ -35,11 +113,11 @@ exports.Main = Component.specialize(/** @lends Main# */ {
         value: function (event) {
  			//disabling flow if a flag is the target to allow html5 drag
             if (event.target && event.target.component){
-                if (event.target.component.identifier == "country") {
-                	this._countryName = event.target.component.countryName;
-                	
+
+                if (event.target.component.identifier == "countryHandle") {
+                	this._countryName = event.target.component.parentComponent.countryName;   	
                 	this.countryStrip.countryFlow._flowTranslateComposer._cancel();
-                    // this.countryStrip.countryFlow._flowTranslateComposer.enabled = false;
+             
                 }
             }
         }
@@ -50,8 +128,8 @@ exports.Main = Component.specialize(/** @lends Main# */ {
         	// console.log(event.target);
             if (event.target && event.target.component){
 
-                if (event.target.component.identifier == "country") {
-                	console.log(event.target.component.countryName);
+                if (event.target.component.identifier == "countryHandle") {
+                	// console.log(event.target.component.countryName);
                     // this.countryStrip.countryFlow._flowTranslateComposer.enabled = true;
                 }
                 // if (event.target.component.identifier == "dropbox1") {
@@ -63,7 +141,7 @@ exports.Main = Component.specialize(/** @lends Main# */ {
 
     _converterBoxes: {
     	value: [
-    		{"country1": null, "country2": null, "name": "USDGBP", "ask": 89.32 , "bid": 101.34, "id": 0}
+    		{"country1": null, "country2": null, "name": null, "ask": null , "bid": null, "id": 0}
     	]
     },
 
@@ -80,24 +158,24 @@ exports.Main = Component.specialize(/** @lends Main# */ {
         }
     },
 
+    _converterId: {
+    	value: 0
+    },
+
     handleAddConverterButtonAction: {
     	value: function() {
     		// console.log(this.converterRep);
     		if(this.converterRep.iterations.length < 3){
     			this._counter++;
-    			this._converterBoxes.push({"country1": null, "country2": null, "name": null, "ask": null , "bid": null, "id": this.counter});
+    			this._converterId++;
+    			this._converterBoxes.push({"country1": null, "country2": null, "name": null, "ask": null , "bid": null, "id": this._converterId});
+    			// this._converterBoxes.push({"country1": null, "country2": null, "id": this.counter});
     		} else {
     			alert('You have reached maximum number of comparisons');
     		}
     		// this._counter++;
     		// this._converterBoxes.push({"country1": null, "country2": null, "name": null, "ask": null , "bid": null, "id": this.counter});
     	}
-    },
-
-    captureDragStart: {
-        value: function (event) {
-            this.component.countryStrip.countryFlow._flowTranslateComposer.enabled = true;
-        }
     },
 
     _handleDrop: {
@@ -132,18 +210,6 @@ exports.Main = Component.specialize(/** @lends Main# */ {
         },
         set: function (value) {
             this._restSliderValue = Math.trunc(value);
-        }
-    },
-
-    // _selectedList: {
-    //     value: null
-    // },
-
-    _selectedList: {
-        value: {
-        	name: "USDGBP",
-        	ask: 89.32,
-        	bid: 101.34
         }
     },
 

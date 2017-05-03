@@ -2,7 +2,7 @@
     "name": "xignitemontagedemo",
     "version": "0.1.0",
     "dependencies": {
-        "montage": "montagejs/montage.git#v16.0.1",
+        "montage": "montagejs/montage#master",
         "digit": "~0.5.0",
         "d3-shape": "~1.0.1"
     },

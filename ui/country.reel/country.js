@@ -11,15 +11,8 @@ exports.Country = Component.specialize(/** @lends Country# */ {
 
     enterDocument: {
         value: function () {
-           
-        }
-    },
-
-    draw: {
-        value: function () {
-
+          
         }
     }
-
 
 });

@@ -25,7 +25,7 @@
                     "cameraTargetPoint": [0, 0, 0],
                     "hasElasticScrolling": true,
                     "elasticScrollingSpeed": 0.8,
-                    "linearScrollingVector": [-800, 0],
+                    "linearScrollingVector": [-500, 0],
                     "paths": [
                         {
                             "knots": [
@@ -43,7 +43,7 @@
                                 }
                             ],
                             "headOffset": 0,
-                            "tailOffset": 4,
+                            "tailOffset": 8,
                             "units": {}
                         }
                     ]
@@ -55,28 +55,22 @@
             "country": {
                 "prototype": "ui/country.reel",
                 "properties": {
-                    "element": {"#": "country"}
+                    "element": {"#": "country"},
+                    "isDraggable": true
                 },
                 "bindings": {
                     "name": {"<-": "@countryFlow:iteration.object.name"},
                     "icon": {"<-": "'assets/images/3x5/' + @countryFlow:iteration.object.iso2.toLowerCase() + '.svg'"},
                     "coin": {"<-": "@countryFlow:iteration.object.coin.toUpperCase()"},
                     "symbol": {"<-": "@countryFlow:iteration.object.symbol"},
-                    "countrytitle": {"<-": "@countryFlow:iteration.object.countryName"},
+                    "countryName": {"<-": "@countryFlow:iteration.object.countryName"},
+                    "iso3": {"<-": "@countryFlow:iteration.object.iso3"},
                     "currencyName": {"<-": "@countryFlow:iteration.object.coin.toLowerCase()"},
-                    "symbolName": {"<-": "@countryFlow:iteration.object.coin.toLowerCase()"},
-                    "countryName": {"<-": "@countryFlow:iteration.object.countryName.toUpperCase()"}
+                    "symbolName": {"<-": "@countryFlow:iteration.object.coin.toLowerCase()"}
                 }
             }
             
         }
-    </script>
-    <script>
-    // function handleDragStart(event) {
-    //     console.log('start', event);
-    //     // return true;
-    // }
-    // ondragstart="handleDragStart(event);
     </script>
     
 </head>

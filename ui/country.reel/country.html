@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <!-- "src": "../../assets/images/drag-handle.svg", -->
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
     <title>Main</title>
     <link rel="stylesheet" type="text/css" href="country.css">
@@ -9,6 +10,20 @@
             "owner": {
                 "properties": {
                     "element": {"#": "main"}
+                },
+                "bindings": {
+                    "element.style.border": {"<-": "@owner.hasBorder ? 'none' : 'dashed'"}
+                }
+            },
+
+            "countryHandle": {
+                "prototype": "montage/ui/image.reel",
+                "properties": {
+                    "element": {"#": "countryHandle"},
+                    "draggable": false
+                },
+                "bindings": {
+                    "classList.has('hidden')": {"<-": "!@owner.isDraggable"}
                 }
             },
 
@@ -18,16 +33,19 @@
                     "element": {"#": "icon"}
                 },
                 "bindings": {
-                    "src": {"<-": "@owner.icon"}
+                    "src": {"<-": "@owner.icon"},
+                    "classList.has('hidden')": {"<-": "!@owner.icon"}
                 }
             },
-            "countrytitle": {
+            "countryName": {
                 "prototype": "montage/ui/text.reel",
                 "properties": {
-                    "element": {"#": "countrytitle"}
+                    "element": {"#": "countryName"}
                 },
                 "bindings": {
-                    "value": {"<-": "@owner.countrytitle"}
+                    "value": {"<-": "@owner.countryName"},
+                    "classList.has('hidden')": {"<-": "!@owner.countryName"},
+                    "element.style.color": {"<-": "!@owner.isDraggable ? 'black' : 'white'"}
                 }
             },
 
@@ -39,7 +57,8 @@
                 "bindings": {
                     "currencyName": {"<-": "@owner.coin"},
                     "symbol": {"<-": "@owner.symbol"},
-                    "countrytitle": {"<-": "@owner.countrytitle"}
+                    "countryName": {"<-": "@owner.countryName"},
+                    "classList.has('hidden')": {"<-": "!@owner.coin"}
                 }
             }
         }
@@ -47,9 +66,10 @@
 </head>
 <body>
     <div data-montage-id="main" data-montage-skin="light" class="Country">
+        <img data-montage-id="countryHandle" class="Country-handle">
         <img data-montage-id="icon" class="icon boxflag">
 		<div data-montage-id="coin" class="boxcoin"></div>
-		<div data-montage-id="countrytitle" class="boxtitle"></div>
+		<div data-montage-id="countryName" class="boxtitle"></div>
     </div>
 </body>
 </html>

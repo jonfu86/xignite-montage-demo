@@ -1,16 +1,36 @@
 .converterBox{
-    margin-left:20px;
-    width:calc(100% - 40px);
+    /*margin-left:20px;*/
+    /*width:calc(100% - 40px);*/
     background-color:rgba(255,255,255,.2);
     border-radius:10px;
     height:110px;
     margin-bottom:25px;
-    text-align:center;
+    text-align:right;
+    padding: 10px 15px;
 }
 
 .dropbox{
-    width: 185px;
-    height: 110px;
-    border: dashed 1px black;
+    /*width: 185px;*/
+    /*height: 110px;*/
+    /*border: dashed 1px black;*/
     display:inline-block;
+    vertical-align:top;
+}
+
+.dropbox-border{
+    border:dashed;
+}
+
+.Country.dropbox{
+    
+}
+
+.removeConverterButton{
+    vertical-align: top;
+    float:left;
+}
+
+.midwrapper{
+    position:absolute;
+    left:30%;
 }

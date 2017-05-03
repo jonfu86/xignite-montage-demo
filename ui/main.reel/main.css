@@ -228,6 +228,7 @@ label {
     display: inline-block;
     width: 180px;
     text-align: center;
+    font-weight:600;
 }
 
 .addConverterButton{
