@@ -28,8 +28,8 @@
 }
 
 .Country {
-    width: 150px;
-    height: 90px;
+    width: 180px;
+    height: 108px;
     border: 1px solid gray;
 }
 
@@ -44,6 +44,7 @@
     z-index: 20;
     margin-left: -11px;
     position: absolute;
+    cursor: -webkit-grab;
 }
 
 .icon.boxflag {
@@ -67,23 +68,7 @@
 
 
 .boxcoin {
-    width:180px;
-    height:180px;
-    top:0px;
-    padding-left:60px;
-    padding-right:60px;
-    left:0px;
-    iimage-rendering: -webkit-optimize-contrast;
-    cursor:pointer;
-    user-select:none;
-    position:absolute;
-    -webkit-transform-origin:50% 50%;
-    -webkit-transform:translate(-75px, -45px) scale(.3);
-    -webkit-transition:all .3s cubic-bezier(0.68, -0.55, 0.265, 1.6);
-    ibackground-image:url(../../assets/images/coin_back.jpg);
-    ibackground-size:cover;
-    opacity:.0;
-    z-index:1000;
+   
 
 }
 
@@ -113,7 +98,7 @@
 
 .boxcoin:hover {
     opacity:1.0;
-    -webkit-transform:translate(-75px, -45px) scale(.6);
+    /*-webkit-transform:translate(-75px, -45px) scale(.6);*/
 }
 .icon.boxflag:hover {
 

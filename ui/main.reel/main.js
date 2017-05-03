@@ -41,11 +41,12 @@ exports.Main = Component.specialize(/** @lends Main# */ {
 
     handleDragstart: {
         value: function (event) {
-        	var self = this;
+        	// var self = this;
 
         	if(event.target.component.identifier == "country") {
         		var country = event.target.component;
         			this._dragData = country;
+
         			// this._dragTarget = country;
         			// set = {countrytitle: country.countrytitle, icon: country.icon},
         			// data = JSON.stringify(set);
@@ -113,10 +114,12 @@ exports.Main = Component.specialize(/** @lends Main# */ {
         value: function (event) {
  			//disabling flow if a flag is the target to allow html5 drag
             if (event.target && event.target.component){
-
+                console.log(event.target);
                 if (event.target.component.identifier == "countryHandle") {
+
                 	this._countryName = event.target.component.parentComponent.countryName;   	
                 	this.countryStrip.countryFlow._flowTranslateComposer._cancel();
+                    
              
                 }
             }
@@ -129,6 +132,7 @@ exports.Main = Component.specialize(/** @lends Main# */ {
             if (event.target && event.target.component){
 
                 if (event.target.component.identifier == "countryHandle") {
+
                 	// console.log(event.target.component.countryName);
                     // this.countryStrip.countryFlow._flowTranslateComposer.enabled = true;
                 }

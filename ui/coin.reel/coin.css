@@ -1,23 +1,38 @@
 .coin {
-
+   /* margin-top: -118px;
+    margin-left: 74px;*/
+    position: relative;
+    width:180px;
+    /*width:180px;
+    height:180px;
+    top:0px;
+    padding-left:60px;
+    padding-right:60px;
+    left:0px;
+    iimage-rendering: -webkit-optimize-contrast;
+    cursor:pointer;
+    user-select:none;
+    position:relative;
+    -webkit-transform-origin:50% 50%;
+    -webkit-transform:translate(-75px, -45px) scale(.3);
+    -webkit-transition:all .3s cubic-bezier(0.68, -0.55, 0.265, 1.6);
+    ibackground-image:url(../../assets/images/coin_back.jpg);
+    ibackground-size:cover;*/
+    opacity:.0;
+    z-index:1000;
+    transform: translate(0px, -163px) scale(.6);
+    /*transform: translate(-75px, -45px) scale(.6);*/
 }
 
 .coin.hover {
     pointer-events:none;
-
+    opacity:1.0;
 }
 
 .dashed {
     border:2px dashed orange;
     border-radius:calc(50%);
 
-
-}
-
-
-
-.hidden {
-    idisplay:none;
 
 }
 

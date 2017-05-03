@@ -28,6 +28,7 @@
 .removeConverterButton{
     vertical-align: top;
     float:left;
+    cursor: pointer;
 }
 
 .midwrapper{

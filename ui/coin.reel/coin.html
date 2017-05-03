@@ -13,7 +13,7 @@
                     "element": {"#": "coin"},
                     "path1": {"#": "path1"},
                     "path2": {"#": "path2"},
-                    "tpath1": {"#": "tpath1"},
+                    
                     "tpath2": {"#": "tpath2"},
                     "group": {"#": "group"},
                     "circle": {"#": "circle"},
@@ -29,24 +29,7 @@
                     "d": { "<-": "@owner.getSymbol()" }
                 }
             },
-            "countryName": {
-                "prototype": "montage/ui/text.reel",
-                "properties": {
-                    "element": {"#": "tpath1"}
-                },
-                "bindings": {
-                    "value": { "<-": "@owner.countrytitle" }
-                }
-            },
-            "countryName2": {
-                "prototype": "montage/ui/text.reel",
-                "properties": {
-                    "element": {"#": "tpath1b"}
-                },
-                "bindings": {
-                    "value": { "<-": "@owner.countrytitle" }
-                }
-            },
+           
             "currencyName": {
                 "prototype": "montage/ui/text.reel",
                 "properties": {
@@ -267,7 +250,7 @@
 	      United States
 	    </textPath>
     </text>
-
+<!-- 
     <text font-family="Heebo, Verdana" font-weight="900" font-size="18.5" text-anchor="middle" fill="rgba(240,219,119,1.0)" filter="url(#glow)">
 		    <textPath data-montage-id="tpath1" xlink:href="#MyPath2" startOffset="50%" class="aa">
 		      Dollar
@@ -277,7 +260,7 @@
 			    <textPath data-montage-id="tpath1b" xlink:href="#MyPath2" startOffset="50%" class="aa">
 			      Dollar
 			    </textPath>
-    </text>
+    </text> -->
 	<!--circle class="st0" cx="100.6" cy="100" r="90.7"/-->
 	<!--path data-montage-id="path" d="" fill="yellow" transform="translate(100,100)" --/>
 	</g>
