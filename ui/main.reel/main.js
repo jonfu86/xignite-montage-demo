@@ -52,6 +52,10 @@ exports.Main = Component.specialize(/** @lends Main# */ {
         			// data = JSON.stringify(set);
         		// event.dataTransfer.setData("text/plain", data);
         	}
+
+            if(event.target.component.identifier == "converterBox") {
+                console.log(event.target);
+            }
             // console.log("handleDragstart", event.target);
         }
     },
@@ -91,6 +95,11 @@ exports.Main = Component.specialize(/** @lends Main# */ {
         value: function(event) {
             event.preventDefault();
             // console.log('over', event);
+            
+            // if(event.target.component && event.target.component.identifier == "converterBox") {
+            //     console.log('over', event);
+                
+            // }
 
         }
     },
@@ -114,13 +123,20 @@ exports.Main = Component.specialize(/** @lends Main# */ {
         value: function (event) {
  			//disabling flow if a flag is the target to allow html5 drag
             if (event.target && event.target.component){
-                console.log(event.target);
+                // console.log(event.target);
                 if (event.target.component.identifier == "countryHandle") {
 
                 	this._countryName = event.target.component.parentComponent.countryName;   	
                 	this.countryStrip.countryFlow._flowTranslateComposer._cancel();
                     
-             
+                }
+
+                if (event.target.component.identifier == "converterHandle") {
+
+                    this.converterID = event.target.component.parentComponent.id;     
+                    console.log(this.converterID);
+                    // this.countryStrip.countryFlow._flowTranslateComposer._cancel();
+                    
                 }
             }
         }
@@ -145,7 +161,14 @@ exports.Main = Component.specialize(/** @lends Main# */ {
 
     _converterBoxes: {
     	value: [
-    		{"country1": null, "country2": null, "name": null, "ask": null , "bid": null, "id": 0}
+    		{   
+                "country1": null, 
+                "country2": null, 
+                "name": null, 
+                "ask": null , 
+                "bid": null, 
+                "id": 0
+            }
     	]
     },
 
@@ -173,7 +196,10 @@ exports.Main = Component.specialize(/** @lends Main# */ {
     			this._counter++;
     			this._converterId++;
     			this._converterBoxes.push({"country1": null, "country2": null, "name": null, "ask": null , "bid": null, "id": this._converterId});
-    			// this._converterBoxes.push({"country1": null, "country2": null, "id": this.counter});
+    			
+                console.log(this.counter, "counter");
+                console.log(this._converterId, "converterId");
+                // this._converterBoxes.push({"country1": null, "country2": null, "id": this.counter});
     		} else {
     			alert('You have reached maximum number of comparisons');
     		}

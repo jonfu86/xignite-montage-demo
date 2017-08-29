@@ -2,11 +2,12 @@
     /*margin-left:20px;*/
     /*width:calc(100% - 40px);*/
     background-color:rgba(255,255,255,.2);
-    border-radius:10px;
+    /*border-radius:10px;*/
     height:110px;
-    margin-bottom:25px;
-    text-align:right;
-    padding: 10px 15px;
+    /*margin-bottom:25px;*/
+    text-align:left;
+    padding: 25px 25px;
+    border-bottom: 2px solid black;
 }
 
 .dropbox{
@@ -21,17 +22,57 @@
     border:dashed;
 }
 
-.Country.dropbox{
-    
+.conversionArrow {
+    display:inline-flex;
+    align-self:center;
+    height:90px;
+    padding:10px 0px; 
 }
 
 .removeConverterButton{
-    vertical-align: top;
-    float:left;
+    /*margin-top: 35px;*/
+    /*float:right;*/
     cursor: pointer;
+    background: #fb6262;
 }
 
-.midwrapper{
-    position:absolute;
-    left:30%;
+.removeConverterButton.montage--active{
+    background: #BF3F2B;
+}
+
+.dropbox-wrapper{
+    display:inline-block;
+    /*position:absolute;*/
+    /*left:30%;*/
+}
+
+.button-wrapper{
+    float:right;
+    display:flex;
+    flex-direction:column;
+    height:100%;
+}
+
+.grip{
+    flex-grow:1;
+    height:45px;
+    /*border:1px solid black;*/
+    background:url(../../assets/images/Reorder-02.svg);
+    background-repeat:no-repeat;
+    background-position:center;
+    background-size:cover;
+}
+
+.converterHandle{
+    /*border: 1px solid gray;*/
+    /*margin-top: -1px;*/
+    /*border-radius: 50px;*/
+    /*background: #cecece;*/
+    height: 45px;
+    width: 45px;
+    margin:2px auto;
+    /*z-index: 20;*/
+    /*position: absolute;*/
+    /*left: 155px;*/
+    cursor: -webkit-grab;
 }

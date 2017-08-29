@@ -6,9 +6,10 @@
     display:inline-flex;
     flex-direction:column;
     /*padding-top:5px;*/
-    vertical-align: top;
+    /*vertical-align: top;*/
 }
 
 .conversionResult > div {
     flex-grow:1;
+    line-height:55px;
 }

@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <title>CoinBox</title>
+    <title>Converter Box</title>
 
     <link rel="stylesheet" type="text/css" href="converterBox.css">
     <link href='https://fonts.googleapis.com/css?family=Rubik+One|Heebo:400,800,900' rel='stylesheet' type='text/css'>
@@ -15,20 +15,6 @@
                     "country1": {"@": "country1"},
                     "country2": {"@": "country2"}
                 }
-            },
-
-            "removeConverterButton": {
-                "prototype": "montage/ui/button.reel",
-                "properties": {
-                    "element": {"#": "removeConverterButton"},
-                    "label": "Remove Comparison"
-                },
-                "listeners": [
-                    {
-                        "type": "action",
-                        "listener": {"@": "owner"}
-                    }
-                ]
             },
 
             "country1": {
@@ -73,6 +59,46 @@
                     "bid": {"<-": "@owner.restResult.bid"},
                     "ask": {"<-": "@owner.restResult.ask"}
                 }
+            },
+
+            "addConverterButton": {
+                "prototype": "montage/ui/button.reel",
+                "properties": {
+                    "element": {"#": "addConverterButton"},
+                    "label": "Add"
+                },
+                "listeners": [
+                    {
+                        "type": "action",
+                        "listener": {"@": "owner"}
+                    }
+                ]
+            },
+
+            "removeConverterButton": {
+                "prototype": "montage/ui/button.reel",
+                "properties": {
+                    "element": {"#": "removeConverterButton"},
+                    "label": "Remove"
+                },
+                "listeners": [
+                    {
+                        "type": "action",
+                        "listener": {"@": "owner"}
+                    }
+                ]
+            },
+
+            "converterHandle": {
+                "prototype": "montage/ui/image.reel",
+                "properties": {
+                    "element": {"#": "converterHandle"},
+                    "draggable": false,
+                    "src": "../../assets/images/Reorder-02.svg"
+                },
+                "bindings": {
+                    
+                }
             }
 
             
@@ -82,21 +108,23 @@
 <body>
 
     <div data-montage-id="main" data-montage-skin="light" class="converterBox">
-        <!-- <img src='../../assets/images/3x5/us.svg' data-montage-id="flag1" class="icon" style="display:inline-flex;align-self:center;flex-grow:0;width:125px;height:75px;cursor:pointer;user-select:none;-webkit-mask-image:-webkit-linear-gradient(left, rgba(0,0,0,1.0) 0%, rgba(0,0,0,1.0) 50%, rgba(0,0,0,0) 100%);" ></img> -->
-        <button data-montage-id="removeConverterButton" class="removeConverterButton"></button>
-        
-        <div class="midwrapper">
+        <!-- <div class="dropbox-wrapper"> -->
             <div data-montage-id="country1" class="dropbox"></div>
-    		<img src="../../assets/images/conversion_arrow.svg" style="display:inline-flex;align-self:center;height:90px;"></img>
+    		<img src="../../assets/images/conversion_arrow.svg" class="conversionArrow" draggable="false">
+            </img>
             <div data-montage-id="country2" class="dropbox"></div>
+        <!-- </div> -->
+        <div class="mid-wrapper">
+            <div data-montage-id="restConversionResult"></div>
+        
+            <div data-montage-id="wsConversionResult"></div>
         </div>
-
-        <div data-montage-id="restConversionResult"></div>
-    
-        <div data-montage-id="wsConversionResult"></div>
-    
-
-
+        <div class="button-wrapper">
+            <button data-montage-id="addConverterButton" class="addConverterButton button"></button>
+            <img data-montage-id="converterHandle" class="converterHandle"></img>
+            <!-- <div class="grip"></div> -->
+            <button data-montage-id="removeConverterButton" class="removeConverterButton button"></button>
+        </div>
     </div>
 
 </body>

@@ -36,14 +36,13 @@
 .Country-handle{
     border: 1px solid gray;
     margin-top: -1px;
-    border-right: none;
-    border-radius: 3px 0px 0px 3px;
+    border-radius: 15px;
     background: #cecece;
     height: 25px;
-    width: 10px;
+    width: 25px;
     z-index: 20;
-    margin-left: -11px;
     position: absolute;
+    left: 155px;
     cursor: -webkit-grab;
 }
 
@@ -97,7 +96,7 @@
 }
 
 .boxcoin:hover {
-    opacity:1.0;
+    
     /*-webkit-transform:translate(-75px, -45px) scale(.6);*/
 }
 .icon.boxflag:hover {

@@ -50,6 +50,7 @@
                     "country1": {"<->": "@converterRep:iteration:object.country1"},
                     "country2": {"<->": "@converterRep:iteration:object.country2"},
                     "counter": {"<->": "@owner._counter"},
+                    "_converterId": {"<->": "@owner._converterId"},
                     "converterBoxes":{"<->": "@owner._converterBoxes"}
                 }
             },
@@ -176,7 +177,8 @@
         </div>
 
         <div class="introbox">
-            <div class="text-panel">This demo highlights the performance and accuracy benefits of WebSocket over REST for a streaming data application: real-time foreign currency exchange rates. Please go ahead and pick currency pairs from the following list:</div>
+            <div class="text-panel">This demo highlights the performance and accuracy benefits of WebSocket over REST for a streaming data application: real-time foreign currency exchange rates. Drag and drop different country flags from the flow to compare currency pairs.</div>
+            <!-- Please go ahead and pick currency pairs from the following list: -->
             
         </div>
         <div class="flowbox">
@@ -184,34 +186,33 @@
         </div>
         <div class="results_container">
             <div class="results_titlebar">
-                
-				<div class="panel-heading">
-                    <button data-montage-id="addConverterButton" class="addConverterButton"></button>
+                <button data-montage-id="addConverterButton" class="addConverterButton button"></button>
+                <div class="mid-wrapper">
 					<h4>WebSocket</h4>
                     <h4>REST</h4>
-				</div>   
+                </div>
             </div>
 
             <div data-montage-id="converterRep">
-                <div data-montage-id="converterBox"></div>
+                <div data-montage-id="converterBox" draggable="true"></div>
             </div>
+            <div class="mid-wrapper">
+                <div class="results-body">
+                    <!-- <div data-montage-id="wsResultsRep" class="wsResultsRep">
+                        <div data-montage-id="wsConversionResult"></div>
+                    </div> -->
+                    <h5 data-montage-id="wsServerRequestsLabel" class="wsServerRequestsLabel"></h5>
+                    <h5 data-montage-id="wsTrafficLabel" class="wsTrafficLabel"></h5>
+                </div>
 
-            <div class="results-body" style="margin-right:20px">
-                <!-- <div data-montage-id="wsResultsRep" class="wsResultsRep">
-                    <div data-montage-id="wsConversionResult"></div>
-                </div> -->
-                <h5 data-montage-id="wsServerRequestsLabel" class="wsServerRequestsLabel"></h5>
-                <h5 data-montage-id="wsTrafficLabel" class="wsTrafficLabel"></h5>
-            </div>
-
-            <div class="results-body">
-                <!-- <div data-montage-id="restResultsRep" class="restResultsRep">
-                    <div data-montage-id="restConversionResult"></div>
-                </div> -->
-                <h5 data-montage-id="restServerRequestsLabel" class="restServerRequestsLabel"></h5>
-                <h5 data-montage-id="restTrafficLabel" class="restTrafficLabel"></h5>   
-            </div>
-           
+                <div class="results-body">
+                    <!-- <div data-montage-id="restResultsRep" class="restResultsRep">
+                        <div data-montage-id="restConversionResult"></div>
+                    </div> -->
+                    <h5 data-montage-id="restServerRequestsLabel" class="restServerRequestsLabel"></h5>
+                    <h5 data-montage-id="restTrafficLabel" class="restTrafficLabel"></h5>   
+                </div>
+           </div>
 
 			<div class="results_footer">
                 <h5>Adjust REST Polling Interval (ms)</h5>

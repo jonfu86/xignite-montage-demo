@@ -14,16 +14,6 @@
                 }
             },
 
-            "label": {
-                "prototype": "montage/ui/text.reel",
-                "properties": {
-                    "element": {"#": "label"}
-                },
-                "bindings": {
-                    "value": {"<-": "@owner.name"}
-                }
-            },
-
             "bid": {
                 "prototype": "montage/ui/text.reel",
                 "properties": {
@@ -50,7 +40,16 @@
 </head>
 <body>
     <div data-montage-id="main" data-montage-skin="light" class="conversionResult enabled">
-        <div data-montage-id="label" class="label"></div>
+        <!-- <div data-montage-id="label" class="label"></div> -->
+         <!-- "label": {
+                "prototype": "montage/ui/text.reel",
+                "properties": {
+                    "element": {"#": "label"}
+                },
+                "bindings": {
+                    "value": {"<-": "@owner.name"}
+                }
+            }, -->
         <div style="display:block">
             <b>BID: </b><div data-montage-id="bid" style="display:inline-block"></div>
         </div>

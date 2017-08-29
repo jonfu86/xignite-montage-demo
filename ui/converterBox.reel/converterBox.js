@@ -50,12 +50,25 @@ exports.ConverterBox = Component.specialize(/** @lends ConverterBox# */ {
         }
     },
 
+    handleAddConverterButtonAction: {
+        value: function() {
+            if(this.converterBoxes.length < 3){
+                this.counter++;
+                this._converterId++;
+                this._checkPosition();
+                this.converterBoxes.splice(this._position+1, 0, {"country1": null, "country2": null, "name": null, "ask": null , "bid": null, "id": this._converterId});
+            } else {
+                alert('You have reached maximum number of comparisons');
+            }
+        }
+    },
+
     handleRemoveConverterButtonAction: {
         value: function () { 
             this._checkPosition();
+            this._wipeCountry();
             this.converterBoxes[this._position] = null;
             this.converterBoxes.splice(this._position, 1);
-            this._wipeCountry();
             this.counter--;
         }
     },

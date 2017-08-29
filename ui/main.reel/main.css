@@ -219,21 +219,19 @@ label {
     border-radius:3px;
 }
 
-.panel-heading{
-    padding: 10px 15px;
-}
-
-.panel-heading h4{
-    margin: 0px;
-    display: inline-block;
-    width: 180px;
-    text-align: center;
-    font-weight:600;
+.mid-wrapper{
+    position:absolute;
+    left:45%;
+    display:inline-block;
 }
 
 .addConverterButton{
-    float:left;
-    cursor:pointer;
+    cursor: pointer;
+    background: #2FBEC1;
+}
+
+.addConverterButton.montage--active{
+    background: #14ab70;
 }
 
 .currencySelector{
@@ -413,14 +411,23 @@ label {
     width: 70%;
     margin: 15px auto;
     border-radius: 3px;
-    /*background-image:-webkit-linear-gradient(left, #fd904b 0%, rgba(255,255,255,1.0) 40%, rgba(255,255,255,1.0) 60%, #3B6F8F 100%);*/
-    background-image:-webkit-linear-gradient(left, rgba(255,255,255,1.0) 50%, #fd904b 75%, #3B6F8F 100%);
+    background:white;/*background-image:-webkit-linear-gradient(left, #fd904b 0%, rgba(255,255,255,1.0) 40%, rgba(255,255,255,1.0) 60%, #3B6F8F 100%);*/
+    /*background-image:-webkit-linear-gradient(left, rgba(255,255,255,1.0) 50%, #fd904b 75%, #3B6F8F 100%);*/
 }
 
 .results_titlebar {
-    width:100%;
-    text-align:right;
+    width: 100%;
+    text-align: left;
+    padding: 10px 15px;
 
+}
+
+.results_titlebar h4{
+    margin: 0px;
+    display: inline-block;
+    width: 180px;
+    text-align: center;
+    font-weight:600;
 }
 
 .results_footer {
